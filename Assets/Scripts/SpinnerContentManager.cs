@@ -53,15 +53,15 @@ public class SpinnerContentManager
         // gold
         if (round % 30 == 0)
         {
-            currentSpinner = getRandomSpinnerVariation("gold");
+            currentSpinner = GetRandomSpinnerVariation("gold");
         }// silver
         else if (round % 5== 0)
         {
-            currentSpinner = getRandomSpinnerVariation("silver");
+            currentSpinner = GetRandomSpinnerVariation("silver");
         }// bronze
         else
         {
-            currentSpinner = getRandomSpinnerVariation("bronze");
+            currentSpinner = GetRandomSpinnerVariation("bronze");
         }
         // we pick a number of items from the spinner. Currently all these items are included.
         List<(Obtainable, int)> spinnerPossibleItems = currentSpinner.ObtainableItems;

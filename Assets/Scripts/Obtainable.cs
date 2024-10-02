@@ -12,6 +12,8 @@ namespace StandaloneItems
         [SerializeField]
         protected Sprite image;
         [SerializeField]
+        protected int amount;
+        [SerializeField]
         protected Color color;
 
         public string GetName()
@@ -22,6 +24,11 @@ namespace StandaloneItems
         public Sprite GetImage()
         {
             return image;
+        }
+
+        public int GetAmount()
+        {
+            return amount;
         }
 
         public Color GetColor()
