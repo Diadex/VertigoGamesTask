@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI; 
 
 // places spinner's obtainables to specific locations on the UI.
 public class SpinnerSlotPlacer : MonoBehaviour
@@ -30,10 +31,16 @@ public class SpinnerSlotPlacer : MonoBehaviour
         for (int i = 0; i < numberOfItems; i++)
         {
             // for each i of the slotUIGameObj, adjust its transform.
-            // rotate the item, then move it in the rotated direction by slotUIDistanceFromCenter.
-            // then set the values in each slotUIGameObj's image and text field according to the slotObtainableItems
-
             DisplaceUIElement(slotUIGameObj[i], i * degreesInBetween * Mathf.Deg2Rad);
+
+            // then set the values in each slotUIGameObj's image and text field according to the slotObtainableItems
+            Obtainable currentItem = slotObtainableItems[i];
+            Image imageComponent = slotUIGameObj[i].GetComponent<Image>();
+            if (imageComponent != null)
+            {
+                imageComponent.sprite = currentItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
+                imageComponent.color = currentItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
+            }
 
         }
 

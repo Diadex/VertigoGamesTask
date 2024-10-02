@@ -11,43 +11,56 @@ namespace Containers
         [SerializeField]
         private string containerType;
         [SerializeField]
-        private List<(Obtainable obtainable, int coefficient)> obtainableItems;
+        private List<Obtainable> obtainableItems;
+        [SerializeField]
+        private List<float> obtainableItemsCoefficients;
 
-        // Track the previous count of obtainable items
+
+        // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
         private int previousCount = 0;
 
         // Explicit interface implementation for the IItemContainer defined variables/functions
         string IItemContainer.ContainerType => containerType;
-        List<(Obtainable obtainable, int coefficient)> IItemContainer.ObtainableItems => obtainableItems;
+        List<Obtainable> IItemContainer.ObtainableItems => obtainableItems;
+        List<float> IItemContainer.ObtainableItemsCoefficients => obtainableItemsCoefficients;
         List<string> IItemContainer.GetItemData()
         {
+            int size = obtainableItems.Count;
             List<string> itemData = new List<string>();
-            foreach (var item in obtainableItems)
+            for (int a = 0; a < size; a++)
             {
-                itemData.Add($"{item.obtainable.name} (Coefficient: {item.coefficient})");
+                itemData.Add($"{containerType} {obtainableItems[a].name} (Coefficient: {obtainableItemsCoefficients[a]})");
             }
             return itemData;
         }
 
 
-        // The newly added spinner coefficients are defaulted to 1. The coefficients are included for scalability.
+
+
+
+
+
+
+
+
+
+        // Method to update the editor for the coefficients and the obtainableItems
+
         private void OnValidate()
         {
-            // Ensure the list is initialized
-            if (obtainableItems != null)
-            {
-                // Check if a new item has been added
-                if (obtainableItems.Count > previousCount)
-                {
-                    // Set the coefficient of the new item to 1
-                    int newIndex = obtainableItems.Count - 1; // Get the index of the newly added item
-                    var newItem = obtainableItems[newIndex];
-                    obtainableItems[newIndex] = (newItem.obtainable, 1); // Set coefficient to 1
-                }
 
-                // Update the previous count to the current count
-                previousCount = obtainableItems.Count;
+            // Handle newly added items
+            if (obtainableItems.Count > previousCount)
+            {
+                // Add coefficients if there are more items
+                while (obtainableItems.Count > obtainableItemsCoefficients.Count)
+                {
+                    obtainableItemsCoefficients.Add(1f); // Default coefficient to 1
+                }
             }
+
+            // Update the previous count to the current count
+            previousCount = obtainableItems.Count;
         }
     }
 }

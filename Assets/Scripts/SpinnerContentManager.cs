@@ -47,7 +47,7 @@ public class SpinnerContentManager
     }
 
     // TODO does chest data work this way?
-    public List<(Obtainable, int)> GetSpinnerContents()
+    public List<Obtainable> GetSpinnerContents()
     {
         IItemContainer currentSpinner;
         // gold
@@ -64,7 +64,7 @@ public class SpinnerContentManager
             currentSpinner = GetRandomSpinnerVariation("bronze");
         }
         // we pick a number of items from the spinner. Currently all these items are included.
-        List<(Obtainable, int)> spinnerPossibleItems = currentSpinner.ObtainableItems;
+        List<Obtainable> spinnerPossibleItems = currentSpinner.ObtainableItems;
         return spinnerPossibleItems;
     }
 

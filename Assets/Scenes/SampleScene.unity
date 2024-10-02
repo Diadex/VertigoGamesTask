@@ -1731,7 +1731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a93541778b7d9cd42a853e31a02f27b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 535deab6a88f1044097898fe6a8e8d4e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2584,7 +2584,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85961e1c2ada1d741920fe060190e6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotObtainableItems: []
+  slotObtainableItems:
+  - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
+  - {fileID: 11400000, guid: b979120eadaf95b468db33937b4900c9, type: 2}
+  - {fileID: 11400000, guid: 0563104bd15064b46aa16ce634544daa, type: 2}
+  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
+  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
+  - {fileID: 11400000, guid: b4b4ed18e6db3534a9d3f854c8a182e3, type: 2}
+  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
   slotUIGameObj:
   - {fileID: 1295989958}
   - {fileID: 321283901}
