@@ -8,8 +8,11 @@ public class SpinnerWheelUIManager : MonoBehaviour
     [SerializeField]
     private GameObject[] spinnerUIs;
     [SerializeField]
+    private GameObject[] spinnerUIWheelParents;
+    [SerializeField]
     private string[] spinnerUINames;
-
+    [SerializeField]
+    private GameObject slotsOfWheelGameObj;
     [SerializeField]
     private string typeOfSpinner = "bronze";
 
@@ -23,9 +26,14 @@ public class SpinnerWheelUIManager : MonoBehaviour
         for (int i = 0; i < spinnerUIs.Length; i++)
         {
             if (spinnerUINames[i].Equals(typeOfSpinner))
+            {
                 spinnerUIs[i].SetActive(true);
+                slotsOfWheelGameObj.transform.SetParent(spinnerUIWheelParents[i].transform);
+            }
             else
+            {
                 spinnerUIs[i].SetActive(false);
+            }
         }
     }
 
