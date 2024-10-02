@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// makes the spinner spin
 public class SpinnerAnimator : MonoBehaviour
 {
     // Start is called before the first frame update
