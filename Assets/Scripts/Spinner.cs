@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using StandaloneItems;
 
-[CreateAssetMenu(menuName = "Containers/Spinner")]
-
 namespace Containers
 {
-    public class Spinner : IItemContainer
+    [CreateAssetMenu(menuName = "Containers/Spinner")]
+    public class Spinner : ScriptableObject, IItemContainer
     {
         [SerializeField]
         private string containerType;

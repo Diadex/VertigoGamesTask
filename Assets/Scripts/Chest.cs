@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using StandaloneItems;
 
-[CreateAssetMenu(menuName = "Containers/Chest")]
 namespace Containers
 {
+    // note that chest is an obtainable. Obtainable are also Scriptable Object. Thus Chest is a scriptable object.
+    [CreateAssetMenu(menuName = "Containers/Chest")]
     public class Chest : Obtainable, IItemContainer
     {
         // Chest is also an obtainable. Thus it has an itemName, image, color.

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "StandaloneItems/Obtainable")]
 namespace StandaloneItems
 {
+    [CreateAssetMenu(menuName = "StandaloneItems/Obtainable")]
     public class Obtainable : ScriptableObject
     {
         [SerializeField]
