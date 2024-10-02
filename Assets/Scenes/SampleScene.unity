@@ -2603,6 +2603,15 @@ MonoBehaviour:
   - {fileID: 890803764}
   - {fileID: 499677194}
   slotUIDistanceFromCenter: 144
+  spinnerUIs:
+  - {fileID: 199548104}
+  - {fileID: 999494453}
+  - {fileID: 1757089664}
+  spinnerUINames:
+  - bronze
+  - silver
+  - gold
+  typeOfSpinner: gold
 --- !u!1 &2101240203
 GameObject:
   m_ObjectHideFlags: 0

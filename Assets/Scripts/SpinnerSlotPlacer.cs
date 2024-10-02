@@ -1,6 +1,7 @@
 using StandaloneItems;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI; 
@@ -18,9 +19,18 @@ public class SpinnerSlotPlacer : MonoBehaviour
     [SerializeField]
     private float slotUIDistanceFromCenter = 144f;
 
+    [SerializeField]
+    private GameObject[] spinnerUIs;
+    [SerializeField]
+    private string[] spinnerUINames;
+
+    [SerializeField]
+    private string typeOfSpinner = "bronze";
+
     private void Start()
     {
         SetItemsUI();
+        SetSpinnerWheelUI();
     }
 
     private void SetItemsUI()
@@ -41,9 +51,18 @@ public class SpinnerSlotPlacer : MonoBehaviour
                 imageComponent.sprite = currentItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
                 imageComponent.color = currentItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
             }
-
         }
+    }
 
+    private void SetSpinnerWheelUI()
+    {
+        for (int i = 0; i < spinnerUIs.Length; i++)
+        {
+            if (spinnerUINames[i].Equals(typeOfSpinner))
+                spinnerUIs[i].SetActive(true);
+            else
+                spinnerUIs[i].SetActive(false);
+        }
     }
 
     private void DisplaceUIElement( GameObject gameObj, float degreesTurned)
