@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1872bffe2106cf4c9684dcb6b0de5bf, type: 3}
-  m_Name: SilverSpinner
+  m_Name: BronzeSpinner_2
   m_EditorClassIdentifier: 
-  containerType: Silver
+  containerType: Bronze
   obtainableItems:
+  - {fileID: 11400000, guid: 8b869ae1e07876e419661b58d9919bed, type: 2}
   - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: b979120eadaf95b468db33937b4900c9, type: 2}
   - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
-  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
   - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
+  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: 8b869ae1e07876e419661b58d9919bed, type: 2}
   - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
   obtainableItemsCoefficients:
   - 1

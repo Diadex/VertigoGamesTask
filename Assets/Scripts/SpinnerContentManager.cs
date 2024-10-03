@@ -9,24 +9,31 @@ Depending on which round it is, define what will go in the spinner.
 So, get the data from the scriptable objects for gold, silver, bronze. 
 Spinner manager will have these scriptable objects in an array for the three types of spinners.
 */
-public class SpinnerContentManager
+public class SpinnerContentManager: MonoBehaviour
 {
+
+    [System.Serializable]
+    public class SpinnerCategory
+    {
+        public List<Spinner> spinners;  // Inner list of spinners
+        public string spinnerType;
+    }
+
     // list of spinner type, and the spinner objects
     // such as ("gold", [gold_variation1, gold_variation2]), ("silver", [silver_variation1, silver_variation2])...
     [SerializeField]
-    private List<(string spinnerTypeName, List<Spinner> spinners)> SpinnerVariations;
-    // TODO change the round count from gameManager. Currently in editor
-    [SerializeField]
-    private int round = 1;
+    private List<SpinnerCategory> spinnerVariations;
 
     private Spinner GetRandomSpinnerVariation(string spinnerTypeName)
     {
+        int indexCount = spinnerVariations.Count;
         // Find the tuple with the matching spinnerTypeName
-        foreach (var variation in SpinnerVariations)
+        for (int i = 0; i < indexCount; i++)
         {
-            if (variation.spinnerTypeName == spinnerTypeName)
+            SpinnerCategory pickedSpinnerCategory = spinnerVariations[i];
+            if (pickedSpinnerCategory.spinnerType.Equals(spinnerTypeName))
             {
-                List<Spinner> spinnerList = variation.spinners;
+                List<Spinner> spinnerList = pickedSpinnerCategory.spinners;
                 // Check if the list is not empty
                 if (spinnerList.Count > 0)
                 {
@@ -47,22 +54,10 @@ public class SpinnerContentManager
     }
 
     // TODO does chest data work this way?
-    public List<Obtainable> GetSpinnerContents()
+    public List<Obtainable> GetSpinnerContents( string spinnerType)
     {
         IItemContainer currentSpinner;
-        // gold
-        if (round % 30 == 0)
-        {
-            currentSpinner = GetRandomSpinnerVariation("gold");
-        }// silver
-        else if (round % 5== 0)
-        {
-            currentSpinner = GetRandomSpinnerVariation("silver");
-        }// bronze
-        else
-        {
-            currentSpinner = GetRandomSpinnerVariation("bronze");
-        }
+        currentSpinner = GetRandomSpinnerVariation(spinnerType);
         // we pick a number of items from the spinner. Currently all these items are included.
         List<Obtainable> spinnerPossibleItems = currentSpinner.ObtainableItems;
         return spinnerPossibleItems;

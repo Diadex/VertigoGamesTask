@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// manages on which round the wheel looks as how. Whether it is gold, silver, bronze etc.
 public class SpinnerWheelUIManager : MonoBehaviour
 {
 
@@ -13,13 +15,9 @@ public class SpinnerWheelUIManager : MonoBehaviour
     private string[] spinnerUINames;
     [SerializeField]
     private GameObject slotsOfWheelGameObj;
-    [SerializeField]
+
     private string typeOfSpinner = "bronze";
 
-    private void Start()
-    {
-        SetSpinnerWheelUI();
-    }
 
     private void SetSpinnerWheelUI()
     {
@@ -35,6 +33,33 @@ public class SpinnerWheelUIManager : MonoBehaviour
                 spinnerUIs[i].SetActive(false);
             }
         }
+    }
+
+
+    public string SpinnerRoundType( int round)
+    {
+        string spinnertype;
+        if (spinnerUINames.Length < 3)
+        {
+            Debug.Log("There are less types of spinners than the types of variations. SpinnerWheelUIManager");
+            return "Error";
+        }
+        // gold
+        if (round % 30 == 0)
+        {
+            spinnertype = spinnerUINames[2];
+        }// silver
+        else if (round % 5 == 0)
+        {
+            spinnertype = spinnerUINames[1];
+        }// bronze
+        else
+        {
+            spinnertype = spinnerUINames[0];
+        }
+        typeOfSpinner = spinnertype;
+        SetSpinnerWheelUI();
+        return spinnertype;
     }
 
 }

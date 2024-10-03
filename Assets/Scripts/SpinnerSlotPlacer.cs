@@ -20,12 +20,13 @@ public class SpinnerSlotPlacer : MonoBehaviour
     private float slotUIDistanceFromCenter = 144f;
 
 
-    private void Start()
+    public void SetSlotObtainableItems(List<Obtainable> obtainableList)
     {
+        slotObtainableItems = obtainableList;
         SetItemsUI();
     }
 
-    private void SetItemsUI()
+        private void SetItemsUI()
     {
         // place these slots to their respective places.
         int numberOfItems = 8;//slotObtainableItems.Count;

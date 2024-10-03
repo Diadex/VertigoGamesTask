@@ -7,6 +7,7 @@ public class SpinnerButtonHandler : MonoBehaviour
 {
     [SerializeField] // The UI button
     private RectTransform spinButton;
+    // flag true when the button is pressed.
     private bool flag;
 
     void Start()
@@ -27,9 +28,9 @@ public class SpinnerButtonHandler : MonoBehaviour
     }
 
     // get and set for flag
-    public bool IsFlagSet
+    public bool GetFlag()
     {
-        get { return flag; }
+        return flag;
     }
 
     public void SetFlag(bool value)
