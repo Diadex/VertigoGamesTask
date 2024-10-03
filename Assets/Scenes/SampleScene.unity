@@ -2528,10 +2528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeedUpDuration: 1
-  spinNoSpeedLossDuration: 4
+  spinNoSpeedLossDuration: 2
   spinSlowDownDuration: 6
   rotationsSpeedUp: 2
-  rotationsNoSpeedLoss: 10
+  rotationsNoSpeedLoss: 5
   rotationsSlowDown: 3
 --- !u!1 &2007557816
 GameObject:
