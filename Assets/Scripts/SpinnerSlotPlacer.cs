@@ -49,13 +49,15 @@ public class SpinnerSlotPlacer : MonoBehaviour
 
     private void DisplaceUIElement( GameObject gameObj, float degreesTurned)
     {
+        //gameObj.transform.rotation = Quaternion.identity;
+
         // Calculate the new position based on the angle and distance from the center
         float xPos = Mathf.Sin(degreesTurned) * slotUIDistanceFromCenter;
         float yPos = Mathf.Cos(degreesTurned) * slotUIDistanceFromCenter;
 
         // Set the position and rotation of the UI slot
         gameObj.transform.localPosition = new Vector3(xPos, yPos, 0);
-        gameObj.transform.rotation = Quaternion.LookRotation(Vector3.forward, new Vector3(xPos, yPos, 0));
+        gameObj.transform.localRotation = Quaternion.LookRotation(Vector3.forward, new Vector3(xPos, yPos, 0));
     }
 
 
