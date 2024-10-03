@@ -36,7 +36,7 @@ public class SpinnerWheelUIManager : MonoBehaviour
     }
 
 
-    public string SpinnerRoundType( int round)
+    public string SpinnerInitialise( int round)
     {
         string spinnertype;
         if (spinnerUINames.Length < 3)
@@ -60,6 +60,11 @@ public class SpinnerWheelUIManager : MonoBehaviour
         typeOfSpinner = spinnertype;
         SetSpinnerWheelUI();
         return spinnertype;
+    }
+
+    public GameObject[] GetSpinnerWheelUIReferences()
+    {
+        return spinnerUIWheelParents;
     }
 
 }

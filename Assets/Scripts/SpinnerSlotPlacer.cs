@@ -50,8 +50,8 @@ public class SpinnerSlotPlacer : MonoBehaviour
     private void DisplaceUIElement( GameObject gameObj, float degreesTurned)
     {
         // Calculate the new position based on the angle and distance from the center
-        float xPos = Mathf.Cos(degreesTurned) * slotUIDistanceFromCenter;
-        float yPos = Mathf.Sin(degreesTurned) * slotUIDistanceFromCenter;
+        float xPos = Mathf.Sin(degreesTurned) * slotUIDistanceFromCenter;
+        float yPos = Mathf.Cos(degreesTurned) * slotUIDistanceFromCenter;
 
         // Set the position and rotation of the UI slot
         gameObj.transform.localPosition = new Vector3(xPos, yPos, 0);

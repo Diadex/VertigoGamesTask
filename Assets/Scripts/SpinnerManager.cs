@@ -24,7 +24,15 @@ public class SpinnerManager : MonoBehaviour
     private bool spinButtonPressed = false;
     private bool spinnerInitialised = false;
     private int spinnerResult = 0;
+    private int numberOfItems;
     private Obtainable itemResult;
+    private GameObject[] spinnerWheels;
+
+    private void Start()
+    {
+        spinnerWheels = spinnerWheelUIManager.GetSpinnerWheelUIReferences();
+    }
+
 
     private void Update()
     {
@@ -40,27 +48,32 @@ public class SpinnerManager : MonoBehaviour
         else if (!spinButtonPressed)
         {
             // check the button
-            if (spinnerButtonHandler.GetFlag())
+            if (spinnerButtonHandler.GetFlag() && !spinnerAnimator.CheckAnimation())
             {
                 spinnerButtonHandler.SetFlag(false);
                 spinButtonPressed = true;
+                spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult * 360 / numberOfItems);
             }
         }
-        else
-        { // button pressed, await to become activated after spinning and showing is over.
-            Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
-            spinnerInitialised = false;
-            spinButtonPressed = false;
+        else if (spinButtonPressed)
+        {
+            if (!spinnerAnimator.CheckAnimation())
+            {
+                Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
+                spinnerInitialised = false;
+                spinButtonPressed = false;
+            }
         }
     }
 
     private void InitializeSpinner()
     {
+        Debug.Log("Initialised");
         round++;
-        string roundType = spinnerWheelUIManager.SpinnerRoundType(round);
+        string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
         List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
         spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
-        int numberOfItems = spinnerObtainables.Count;
+        numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
         spinnerInitialised = true;
