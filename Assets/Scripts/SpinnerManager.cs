@@ -52,7 +52,7 @@ public class SpinnerManager : MonoBehaviour
                 if (spinnerButtonHandler.GetFlag())
                 {
                     spinnerButtonHandler.ButtonSetActive(false);
-                    spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult * 360 / numberOfItems);
+                    spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult, numberOfItems);
                     currentState = SpinnerState.Spinning;
                 }
                 break;

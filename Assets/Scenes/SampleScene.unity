@@ -2532,7 +2532,8 @@ MonoBehaviour:
   spinSlowDownDuration: 6
   rotationsSpeedUp: 2
   rotationsNoSpeedLoss: 5
-  rotationsSlowDown: 3
+  rotationsSlowDown: 4
+  spinnerEdgeClosenessTreshold: 0.5
 --- !u!1 &2007557816
 GameObject:
   m_ObjectHideFlags: 0
