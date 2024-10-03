@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// coordinates the spinner flow
+// Coordinates the spinner flow
 public class SpinnerManager : MonoBehaviour
 {
     [SerializeField]
@@ -19,10 +19,17 @@ public class SpinnerManager : MonoBehaviour
     [SerializeField]
     private SpinnerResultManager spinnerResultManager;
 
-    [SerializeField] // TODO remove the serializefield here
+    private enum SpinnerState
+    {
+        Initializing,
+        WaitingForSpin,
+        Spinning,
+        ResultDisplayed
+    }
+
+    private SpinnerState currentState = SpinnerState.Initializing;
+
     private int round = 0;
-    private bool spinButtonPressed = false;
-    private bool spinnerInitialised = false;
     private int spinnerResult = 0;
     private int numberOfItems;
     private Obtainable itemResult;
@@ -33,42 +40,42 @@ public class SpinnerManager : MonoBehaviour
         spinnerWheels = spinnerWheelUIManager.GetSpinnerWheelUIReferences();
     }
 
-
     private void Update()
     {
-        // put the UI elements to place according to the round
-        // check if spin button is pressed. If the flag is true, set it to false.
-        // set spinButtonPressed as true and get the spinner result.
-        // animate the spinner and stop it at the correct location
-        // later show the next screen and such
-        if (!spinnerInitialised)
+        switch (currentState)
         {
-            InitializeSpinner();
-        }
-        else if (!spinButtonPressed)
-        {
-            // check the button
-            if (spinnerButtonHandler.GetFlag() && !spinnerAnimator.CheckAnimation())
-            {
+            case SpinnerState.Initializing:
+                InitializeSpinner();
+                break;
+
+            case SpinnerState.WaitingForSpin:
+                if (spinnerButtonHandler.GetFlag())
+                {
+                    spinnerButtonHandler.ButtonSetActive(false);
+                    spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult * 360 / numberOfItems);
+                    currentState = SpinnerState.Spinning;
+                }
+                break;
+
+            case SpinnerState.Spinning:
+                if (!spinnerAnimator.CheckAnimation())
+                {
+                    Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
+                    currentState = SpinnerState.ResultDisplayed;
+                }
+                break;
+
+            case SpinnerState.ResultDisplayed:
+
                 spinnerButtonHandler.SetFlag(false);
-                spinButtonPressed = true;
-                spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult * 360 / numberOfItems);
-            }
-        }
-        else if (spinButtonPressed)
-        {
-            if (!spinnerAnimator.CheckAnimation())
-            {
-                Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
-                spinnerInitialised = false;
-                spinButtonPressed = false;
-            }
+                currentState = SpinnerState.Initializing;
+                break;
         }
     }
 
     private void InitializeSpinner()
     {
-        Debug.Log("Initialised");
+        Debug.Log("Initialized");
         round++;
         string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
         List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
@@ -76,7 +83,7 @@ public class SpinnerManager : MonoBehaviour
         numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
-        spinnerInitialised = true;
-    } 
-
+        currentState = SpinnerState.WaitingForSpin;
+        spinnerButtonHandler.ButtonSetActive(true);
+    }
 }

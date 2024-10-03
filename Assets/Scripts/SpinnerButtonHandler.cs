@@ -7,17 +7,17 @@ public class SpinnerButtonHandler : MonoBehaviour
 {
     [SerializeField] // The UI button
     private RectTransform spinButton;
+    [SerializeField] // The UI button
+    private GameObject spinButtonActiveGameObj;
+    [SerializeField] // The UI button
+    private GameObject spinButtonDisabledGameObj;
     // flag true when the button is pressed.
     private bool flag;
-
-    void Start()
-    {
-        spinButton = GetComponent<RectTransform>();
-    }
+    private bool isActive = true;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isActive && Input.GetMouseButtonDown(0))
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(spinButton, Input.mousePosition, null))
             {
@@ -25,6 +25,13 @@ public class SpinnerButtonHandler : MonoBehaviour
                 Debug.Log("Custom UI element clicked");
             }
         }
+    }
+
+    public void ButtonSetActive( bool isActiveVar)
+    {
+        spinButtonActiveGameObj.SetActive(isActiveVar);
+        spinButtonDisabledGameObj.SetActive(!isActiveVar);
+        isActive = isActiveVar;
     }
 
     // get and set for flag
