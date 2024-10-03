@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 // places spinner's obtainables to specific locations on the UI.
 public class SpinnerSlotPlacer : MonoBehaviour
 {
-
     [SerializeField]
     private List<Obtainable> slotObtainableItems;
     // we have 8 currently, but if a spinner had more, we could just add another in the editor
     [SerializeField]
-    private GameObject[] slotUIGameObj;
+    private GameObject[] slotUIGameObjects;
     // If a spinner's UI is different such that the distance is further
     [SerializeField]
     private float slotUIDistanceFromCenter = 144f;
@@ -26,7 +25,7 @@ public class SpinnerSlotPlacer : MonoBehaviour
         SetItemsUI();
     }
 
-        private void SetItemsUI()
+    private void SetItemsUI()
     {
         // place these slots to their respective places.
         int numberOfItems = 8;//slotObtainableItems.Count;
@@ -34,18 +33,18 @@ public class SpinnerSlotPlacer : MonoBehaviour
         for (int i = 0; i < numberOfItems; i++)
         {
             // for each i of the slotUIGameObj, adjust its transform.
-            DisplaceUIElement(slotUIGameObj[i], i * degreesInBetween * Mathf.Deg2Rad);
+            DisplaceUIElement(slotUIGameObjects[i], i * degreesInBetween * Mathf.Deg2Rad);
 
             // then set the values in each slotUIGameObj's image and text field according to the slotObtainableItems
             Obtainable currentItem = slotObtainableItems[i];
-            Image imageComponent = slotUIGameObj[i].GetComponent<Image>();
-            if (imageComponent != null)
+            SlotUIManager slotInformation = slotUIGameObjects[i].GetComponent<SlotUIManager>();
+            if (slotInformation != null)
             {
-                imageComponent.sprite = currentItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
-                imageComponent.color = currentItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
+                slotInformation.SetImageAndText(currentItem);
             }
         }
     }
+
 
     private void DisplaceUIElement( GameObject gameObj, float degreesTurned)
     {

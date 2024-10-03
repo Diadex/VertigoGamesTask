@@ -13,7 +13,7 @@ public class SpinnerContentManager: MonoBehaviour
 {
 
     [System.Serializable]
-    public class SpinnerCategory
+    private class SpinnerCategory
     {
         public List<Spinner> spinners;  // Inner list of spinners
         public string spinnerType;
