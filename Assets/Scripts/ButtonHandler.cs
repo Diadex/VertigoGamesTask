@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpinnerButtonHandler : MonoBehaviour
+public class ButtonHandler : MonoBehaviour
 {
     [SerializeField] // The UI button
-    private RectTransform spinButton;
+    private RectTransform buttonRectTransform;
     [SerializeField] // The UI button
-    private GameObject spinButtonActiveGameObj;
+    private GameObject buttonActiveGameObj;
     [SerializeField] // The UI button
-    private GameObject spinButtonDisabledGameObj;
+    private GameObject buttonDisabledGameObj;
     // flag true when the button is pressed.
     private bool flag;
     private bool isActive = true;
@@ -19,7 +19,7 @@ public class SpinnerButtonHandler : MonoBehaviour
     {
         if (isActive && Input.GetMouseButtonDown(0))
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(spinButton, Input.mousePosition, null))
+            if (RectTransformUtility.RectangleContainsScreenPoint(buttonRectTransform, Input.mousePosition, null))
             {
                 SetFlag(true);
                 Debug.Log("Custom UI element clicked");
@@ -27,10 +27,11 @@ public class SpinnerButtonHandler : MonoBehaviour
         }
     }
 
+
     public void ButtonSetActive( bool isActiveVar)
     {
-        spinButtonActiveGameObj.SetActive(isActiveVar);
-        spinButtonDisabledGameObj.SetActive(!isActiveVar);
+        buttonActiveGameObj.SetActive(isActiveVar);
+        buttonDisabledGameObj.SetActive(!isActiveVar);
         isActive = isActiveVar;
     }
 

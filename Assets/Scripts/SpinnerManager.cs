@@ -13,7 +13,7 @@ public class SpinnerManager : MonoBehaviour
     [SerializeField]
     private SpinnerWheelUIManager spinnerWheelUIManager;
     [SerializeField]
-    private SpinnerButtonHandler spinnerButtonHandler;
+    private ButtonHandler spinnerButtonHandler;
     [SerializeField]
     private SpinnerAnimator spinnerAnimator;
     [SerializeField]
