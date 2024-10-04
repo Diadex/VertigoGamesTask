@@ -224,6 +224,52 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6939027529123351425, guid: 867d983a7b07e8f458c50c161951ecdf, type: 3}
   m_PrefabInstance: {fileID: 15659340}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &20471952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 20471954}
+  - component: {fileID: 20471953}
+  m_Layer: 0
+  m_Name: ObtainedItemsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &20471953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20471952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3b8c74467e11b46aeadd8b2c256c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temporaryStorage: []
+  permaStorage: []
+--- !u!4 &20471954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20471952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1534319992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &119437762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3235,9 +3281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864ce448e5088f14993a2cbdbec5cee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinButton: {fileID: 145062589}
-  spinButtonActiveGameObj: {fileID: 145062588}
-  spinButtonDisabledGameObj: {fileID: 1479425432}
+  buttonRectTransform: {fileID: 624760652}
+  buttonActiveGameObj: {fileID: 145062588}
+  buttonDisabledGameObj: {fileID: 1479425432}
 --- !u!1001 &630548289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8050,6 +8096,7 @@ MonoBehaviour:
   spinnerResultManager: {fileID: 0}
   uiInfoManager: {fileID: 245158956}
   spinnerPanelUIManager: {fileID: 508916678}
+  obtainedItemsManager: {fileID: 20471953}
 --- !u!4 &1534319992
 Transform:
   m_ObjectHideFlags: 0
@@ -8067,6 +8114,7 @@ Transform:
   - {fileID: 1952799605}
   - {fileID: 1798115548}
   - {fileID: 245158955}
+  - {fileID: 20471954}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573392101

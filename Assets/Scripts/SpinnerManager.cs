@@ -22,6 +22,8 @@ public class SpinnerManager : MonoBehaviour
     private UIDisplayInformationManager uiInfoManager;
     [SerializeField]
     private SpinnerPanelUIManager spinnerPanelUIManager;
+    [SerializeField]
+    private ObtainedItemsManager obtainedItemsManager;
 
     private enum SpinnerState
     {
@@ -65,6 +67,7 @@ public class SpinnerManager : MonoBehaviour
                 if (!spinnerAnimator.CheckAnimation())
                 {
                     Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
+                    obtainedItemsManager.AddItemToStorage(ObtainedItemsManager.StorageType.TempStorage, itemResult);
                     currentState = SpinnerState.ResultDisplayed;
                 }
                 break;

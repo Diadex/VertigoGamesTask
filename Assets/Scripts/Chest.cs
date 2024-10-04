@@ -20,6 +20,15 @@ namespace Containers
         // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
         private int previousCount = 0;
 
+        public Chest(Chest other, int amount) : base(other, amount)
+        {
+            this.itemName = other.itemName;
+            this.image = other.image;
+            this.amount = amount;
+            this.color = other.color;
+            this.rarity = other.rarity;
+            this.explanation = other.explanation;
+        }
 
         // Explicit interface implementation for the IItemContainer defined variables/functions
         string IItemContainer.ContainerType => containerType;
