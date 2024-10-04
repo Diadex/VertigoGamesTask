@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StandaloneItems;
+using Containers;
 
 public class ObtainedItemsManager : MonoBehaviour
 {
@@ -33,15 +34,15 @@ public class ObtainedItemsManager : MonoBehaviour
         }
     }
 
-    private bool StackItemToList(List<Obtainable> storage, Obtainable obtainable)
+    private bool StackItemToList(List<Obtainable> storage, Obtainable addingItem)
     {
         int storageSize = storage.Count;
         for (int i = 0; i < storageSize; i++)
         {
             Obtainable storageItem = storage[i];
-            if (storageItem.GetName().Equals(obtainable.GetName()))
+            if (storageItem.GetName().Equals(addingItem.GetName()))
             {
-                Obtainable copiedItem = new Obtainable(storageItem, storageItem.GetAmount() + obtainable.GetAmount());
+                Obtainable copiedItem = CloneAddObtainable(storageItem, addingItem);
                 storage.RemoveAt(i);
                 storage.Add(copiedItem);
                 return true;
@@ -50,4 +51,19 @@ public class ObtainedItemsManager : MonoBehaviour
         return false;
     }
 
+
+    private Obtainable CloneAddObtainable(Obtainable storageItem, Obtainable addingItem)
+    {
+        // Check if the storage item is a Chest
+        if (storageItem is Chest chestItem)
+        {
+            // Clone using the Chest's Clone method
+            return chestItem.Clone(chestItem.GetAmount() + addingItem.GetAmount());
+        }
+        else
+        {
+            // Fallback to the Obtainable's Clone method
+            return Obtainable.Clone(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
+        }
+    }
 }

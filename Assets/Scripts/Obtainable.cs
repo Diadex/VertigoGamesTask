@@ -20,14 +20,16 @@ namespace StandaloneItems
         [SerializeField]
         protected string explanation;
 
-        public Obtainable(Obtainable other, int amount)
+        public static Obtainable Clone(Obtainable original, int newAmount)
         {
-            this.itemName = other.itemName;
-            this.image = other.image;
-            this.amount = amount;
-            this.color = other.color;
-            this.rarity = other.rarity;
-            this.explanation = other.explanation;
+            Obtainable clone = ScriptableObject.CreateInstance<Obtainable>();
+            clone.itemName = original.itemName;
+            clone.image = original.image;
+            clone.color = original.color;
+            clone.rarity = original.rarity;
+            clone.explanation = original.explanation;
+            clone.amount = newAmount; // Update the amount here
+            return clone;
         }
 
         public string GetName()

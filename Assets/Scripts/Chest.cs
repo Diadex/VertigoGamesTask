@@ -20,15 +20,29 @@ namespace Containers
         // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
         private int previousCount = 0;
 
-        public Chest(Chest other, int amount) : base(other, amount)
+
+        // Chest-specific clone method
+        public Chest Clone(int newAmount)
         {
-            this.itemName = other.itemName;
-            this.image = other.image;
-            this.amount = amount;
-            this.color = other.color;
-            this.rarity = other.rarity;
-            this.explanation = other.explanation;
+            // Create a new instance of Chest
+            Chest chestClone = ScriptableObject.CreateInstance<Chest>();
+
+            // Copy the Obtainable fields (inherited fields)
+            chestClone.itemName = this.itemName;
+            chestClone.image = this.image;
+            chestClone.color = this.color;
+            chestClone.rarity = this.rarity;
+            chestClone.explanation = this.explanation;
+            chestClone.amount = newAmount; // Set new amount
+
+            // Copy the chest-specific fields
+            chestClone.containerType = this.containerType;
+            chestClone.obtainableItems = new List<Obtainable>(this.obtainableItems); // Shallow copy of items list
+            chestClone.obtainableItemsCoefficients = new List<float>(this.obtainableItemsCoefficients); // Shallow copy of coefficients list
+
+            return chestClone;
         }
+
 
         // Explicit interface implementation for the IItemContainer defined variables/functions
         string IItemContainer.ContainerType => containerType;

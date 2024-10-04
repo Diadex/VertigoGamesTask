@@ -60,6 +60,7 @@ public class SpinnerManager : MonoBehaviour
             case SpinnerState.WaitingForButtonPress:
                 if (spinnerButtonHandler.GetFlag())
                 {
+                    CheckEnableSafeZoneOptions(false);
                     spinnerButtonHandler.ButtonSetActive(false);
                     spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult, numberOfItems);
                     currentState = SpinnerState.Spinning;
