@@ -18,6 +18,10 @@ public class SpinnerManager : MonoBehaviour
     private SpinnerAnimator spinnerAnimator;
     [SerializeField]
     private SpinnerResultManager spinnerResultManager;
+    [SerializeField]
+    private UIDisplayInformationManager uiInfoManager;
+    [SerializeField]
+    private SpinnerPanelUIManager spinnerPanelUIManager;
 
     private enum SpinnerState
     {
@@ -77,12 +81,15 @@ public class SpinnerManager : MonoBehaviour
     {
         Debug.Log("Initialized");
         round++;
+        uiInfoManager.SetRoundText(round);
         string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
         List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
         spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
         numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
+        spinnerPanelUIManager.SetSpinWriting(roundType, spinnerContentManager.GetObtainableRewardRateWriting());
+
         currentState = SpinnerState.WaitingForSpin;
         spinnerButtonHandler.ButtonSetActive(true);
     }

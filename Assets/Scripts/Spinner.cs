@@ -14,6 +14,8 @@ namespace Containers
         private List<Obtainable> obtainableItems;
         [SerializeField]
         private List<float> obtainableItemsCoefficients;
+        [SerializeField]
+        private string obtainableRewardRateWriting = "Up To x2 Rewards";
 
 
         // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
@@ -37,7 +39,10 @@ namespace Containers
 
 
 
-
+        public string GetObtainableRewardRateWriting()
+        {
+            return obtainableRewardRateWriting;
+        }
 
 
 

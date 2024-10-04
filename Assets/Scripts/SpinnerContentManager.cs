@@ -23,6 +23,7 @@ public class SpinnerContentManager: MonoBehaviour
     // such as ("gold", [gold_variation1, gold_variation2]), ("silver", [silver_variation1, silver_variation2])...
     [SerializeField]
     private List<SpinnerCategory> spinnerVariations;
+    private string obtainableRewardRateWriting;
 
     private Spinner GetRandomSpinnerVariation(string spinnerTypeName)
     {
@@ -39,7 +40,9 @@ public class SpinnerContentManager: MonoBehaviour
                 {
                     // Pick a random index
                     int randomIndex = Random.Range(0, spinnerList.Count);
-                    return spinnerList[randomIndex]; // Return the randomly selected spinner
+                    Spinner result = spinnerList[randomIndex];
+                    obtainableRewardRateWriting = result.GetObtainableRewardRateWriting();
+                    return result; // Return the randomly selected spinner
                 }
                 else
                 {
@@ -61,6 +64,10 @@ public class SpinnerContentManager: MonoBehaviour
         // we pick a number of items from the spinner. Currently all these items are included.
         List<Obtainable> spinnerPossibleItems = currentSpinner.ObtainableItems;
         return spinnerPossibleItems;
+    }
+
+    public string GetObtainableRewardRateWriting() {
+        return obtainableRewardRateWriting;
     }
 
 }

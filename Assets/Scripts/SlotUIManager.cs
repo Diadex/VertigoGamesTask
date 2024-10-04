@@ -30,7 +30,7 @@ public class SlotUIManager : MonoBehaviour
 
     private string GetTextUIAmountDisplay(int amount)
     {
-        if (amount <= 0)
+        if (amount < 0)
         {
             return "";
         }
