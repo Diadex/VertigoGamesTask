@@ -2615,6 +2615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinTypeWriting: {fileID: 1573392103}
   spinRewardRateWriting: {fileID: 960471788}
+  buttonsPanel: {fileID: 2104761167}
+  leaveButton: {fileID: 1380893724}
 --- !u!1 &521479727
 GameObject:
   m_ObjectHideFlags: 0

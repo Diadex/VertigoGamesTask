@@ -7,10 +7,12 @@ public class SpinnerPanelUIManager : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI spinTypeWriting;
-
     [SerializeField]
     private TextMeshProUGUI spinRewardRateWriting;
-
+    [SerializeField]
+    private GameObject buttonsPanel;
+    [SerializeField]
+    private GameObject leaveButton;
 
     public void SetSpinWriting(string spinType, string spinRewardWriting)
     {
@@ -18,7 +20,15 @@ public class SpinnerPanelUIManager : MonoBehaviour
         spinRewardRateWriting.text = spinRewardWriting;
     }
 
-    // TODO make the leave button pop up
+    public void OpenButtonsPanel( bool isOpen)
+    {
+        buttonsPanel.SetActive(isOpen);
+    }
+
+    public void SetActiveLeaveButton( bool isOpen)
+    {
+        leaveButton.SetActive(isOpen);
+    }
 
 
 }

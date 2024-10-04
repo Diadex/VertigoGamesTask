@@ -16,6 +16,8 @@ namespace Containers
         private List<float> obtainableItemsCoefficients;
         [SerializeField]
         private string obtainableRewardRateWriting = "Up To x2 Rewards";
+        [SerializeField]
+        private bool isSafeZone = false;
 
 
         // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
@@ -44,6 +46,10 @@ namespace Containers
             return obtainableRewardRateWriting;
         }
 
+        public bool GetIsSafeZone()
+        {
+            return isSafeZone;
+        }
 
 
 

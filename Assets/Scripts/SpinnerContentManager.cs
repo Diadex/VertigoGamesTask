@@ -24,6 +24,7 @@ public class SpinnerContentManager: MonoBehaviour
     [SerializeField]
     private List<SpinnerCategory> spinnerVariations;
     private string obtainableRewardRateWriting;
+    private Spinner currentSpinner;
 
     private Spinner GetRandomSpinnerVariation(string spinnerTypeName)
     {
@@ -59,15 +60,19 @@ public class SpinnerContentManager: MonoBehaviour
     // TODO does chest data work this way?
     public List<Obtainable> GetSpinnerContents( string spinnerType)
     {
-        IItemContainer currentSpinner;
         currentSpinner = GetRandomSpinnerVariation(spinnerType);
-        // we pick a number of items from the spinner. Currently all these items are included.
-        List<Obtainable> spinnerPossibleItems = currentSpinner.ObtainableItems;
+        IItemContainer currentContainer = currentSpinner;
+        List<Obtainable> spinnerPossibleItems = currentContainer.ObtainableItems;
         return spinnerPossibleItems;
     }
 
     public string GetObtainableRewardRateWriting() {
         return obtainableRewardRateWriting;
+    }
+
+    public bool GetCurrentSpinnerIsLeavable()
+    {
+        return currentSpinner.GetIsSafeZone();
     }
 
 }

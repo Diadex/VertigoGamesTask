@@ -28,9 +28,12 @@ public class SpinnerManager : MonoBehaviour
     private enum SpinnerState
     {
         Initializing,
-        WaitingForSpin,
+        WaitingForButtonPress,
         Spinning,
-        ResultDisplayed
+        ResultDisplayed,
+        ObtainableItemsDisplayed,
+        Exploding,
+        Reset,
     }
 
     private SpinnerState currentState = SpinnerState.Initializing;
@@ -54,7 +57,7 @@ public class SpinnerManager : MonoBehaviour
                 InitializeSpinner();
                 break;
 
-            case SpinnerState.WaitingForSpin:
+            case SpinnerState.WaitingForButtonPress:
                 if (spinnerButtonHandler.GetFlag())
                 {
                     spinnerButtonHandler.ButtonSetActive(false);
@@ -86,14 +89,32 @@ public class SpinnerManager : MonoBehaviour
         round++;
         uiInfoManager.SetRoundText(round);
         string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
+
         List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
+        bool isSafeZone = spinnerContentManager.GetCurrentSpinnerIsLeavable();
+        CheckEnableSafeZoneOptions(isSafeZone);
         spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
+
         numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
         spinnerPanelUIManager.SetSpinWriting(roundType, spinnerContentManager.GetObtainableRewardRateWriting());
 
-        currentState = SpinnerState.WaitingForSpin;
+        currentState = SpinnerState.WaitingForButtonPress;
         spinnerButtonHandler.ButtonSetActive(true);
+    }
+
+    private void CheckEnableSafeZoneOptions(bool isSafeZone)
+    {
+        if (isSafeZone)
+        {
+            spinnerPanelUIManager.OpenButtonsPanel(true);
+            spinnerPanelUIManager.SetActiveLeaveButton(true);
+        }
+        else
+        {
+            spinnerPanelUIManager.OpenButtonsPanel(false);
+            spinnerPanelUIManager.SetActiveLeaveButton(false);
+        }
     }
 }
