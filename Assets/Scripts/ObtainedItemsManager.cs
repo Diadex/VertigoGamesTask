@@ -70,18 +70,15 @@ public class ObtainedItemsManager : MonoBehaviour
             return Obtainable.Clone(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
         }
     }
+    // same method, different parameters
     private Obtainable CloneAddObtainable(Obtainable storageItem, int amount)
     {
-        // Check if the storage item is a Chest
         if (storageItem is Chest chestItem)
         {
-            // Clone using the Chest's Clone method
             return chestItem.Clone(chestItem.GetAmount() + amount);
         }
         else
         {
-            Debug.Log("storageItem.GetAmount() + amount is " + (storageItem.GetAmount() + amount));
-            // Fallback to the Obtainable's Clone method
             return Obtainable.Clone(storageItem, storageItem.GetAmount() + amount);
         }
     }
@@ -108,31 +105,22 @@ public class ObtainedItemsManager : MonoBehaviour
     // returns false when there isn't enough gold currency
     public bool SpendGold( int spentAmount)
     {
-        Obtainable gold = FindObtainableInPermaStorageWithName(goldName);
-        if (gold != null && gold.GetAmount() >= spentAmount)
-        {
-            CloneAddObtainable(gold, -spentAmount);
-            gold = FindObtainableInPermaStorageWithName(goldName);
-            Debug.Log("the current goldAmount is "+ gold.GetAmount());
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    private Obtainable FindObtainableInPermaStorageWithName(string name)
-    {
         int permaStorageSize = permaStorage.Count;
         for (int i = 0; i < permaStorageSize; i++)
         {
-            if (permaStorage[i].GetName().Equals(name))
+            if (permaStorage[i].GetName().Equals(goldName))
             {
-                return permaStorage[i];
+                Obtainable gold = permaStorage[i];
+                if (gold != null && gold.GetAmount() >= spentAmount)
+                {
+                    Obtainable goldCloned = CloneAddObtainable(gold, -spentAmount);
+                    permaStorage.RemoveAt(i);
+                    permaStorage.Add(goldCloned);
+                    return true;
+                }
             }
         }
-        return null;
+        return false;
     }
 
     public List<(string currency, int amount)> GetCurrencyList()
