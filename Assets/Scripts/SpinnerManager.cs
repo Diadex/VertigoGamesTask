@@ -13,10 +13,6 @@ public class SpinnerManager : MonoBehaviour
     [SerializeField]
     private SpinnerWheelUIManager spinnerWheelUIManager;
     [SerializeField]
-    private ButtonHandler spinnerButtonHandler;
-    [SerializeField]
-    private ButtonHandler leaveButtonHandler;
-    [SerializeField]
     private SpinnerAnimator spinnerAnimator;
     [SerializeField]
     private SpinnerResultManager spinnerResultManager;
@@ -27,15 +23,26 @@ public class SpinnerManager : MonoBehaviour
     [SerializeField]
     private ObtainedItemsManager obtainedItemsManager;
 
+    [SerializeField]
+    private ButtonHandler spinnerButtonHandler;
+    [SerializeField]
+    private ButtonHandler leaveButtonHandler;
+    [SerializeField]
+    private ButtonHandler explodeResultGiveUpButtonHandler;
+    [SerializeField]
+    private ButtonHandler explodeResultReviveButtonHandler;
+    [SerializeField]
+    private ButtonHandler wonResultButtonHandler;
+
     private enum SpinnerState
     {
         Initializing,
         WaitingForButtonPress,
         Spinning,
         ResultDisplayed,
-        ObtainableItemsDisplayed,
-        Exploding,
+        Exploded,
         SetRoundToBeginning,
+        ObtainableItemsDisplayed,
     }
 
     private SpinnerState currentState;
@@ -88,20 +95,55 @@ public class SpinnerManager : MonoBehaviour
                 {
                     Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
                     obtainedItemsManager.AddItemToStorage(ObtainedItemsManager.StorageType.TempStorage, itemResult);
-                    currentState = SpinnerState.ResultDisplayed;
+                    // check if we exploded or not and display the UI accordingly.
+                    if (spinnerResultManager.DisplaySpinnerResultUI(itemResult))
+                    {
+                        currentState = SpinnerState.Exploded;
+                    }
+                    else
+                    {
+                        currentState = SpinnerState.ResultDisplayed;
+                    }
                 }
                 break;
 
+            case SpinnerState.ResultDisplayed:
+                if (wonResultButtonHandler.GetFlag())
+                {
+                    spinnerResultManager.HideWonResultUI();
+                    wonResultButtonHandler.SetFlag(false);
+                    currentState = SpinnerState.Initializing;
+                }
+                break;
+
+            case SpinnerState.Exploded:
+                if (explodeResultGiveUpButtonHandler.GetFlag())
+                {
+                    spinnerResultManager.HideExplodeResultUI();
+                    explodeResultGiveUpButtonHandler.SetFlag(false);
+
+                    obtainedItemsManager.ClearTempStorage();
+                    currentState = SpinnerState.SetRoundToBeginning;
+                }
+                else if (explodeResultReviveButtonHandler.GetFlag())
+                {
+                    explodeResultReviveButtonHandler.SetFlag(false);
+                    int reviveCostGold = spinnerResultManager.GetCostOnExplosion();
+                    // spend gold, update the gold UI, then continue from the next round
+                    if (obtainedItemsManager.SpendGold(reviveCostGold))
+                    {
+                        uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
+                        spinnerResultManager.HideExplodeResultUI();
+                        currentState = SpinnerState.Initializing;
+                    }
+                }
+                break;
             case SpinnerState.SetRoundToBeginning:
                 round = 0;
                 uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
                 currentState = SpinnerState.Initializing;
                 break;
 
-            case SpinnerState.ResultDisplayed:
-                // display the won item in that round.
-                currentState = SpinnerState.Initializing;
-                break;
 
         }
     }

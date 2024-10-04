@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using StandaloneItems;
 
-public class SlotUIManager : MonoBehaviour
+public class ItemDisplayUIManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject ImageGameObject; // Reference to the image GameObject

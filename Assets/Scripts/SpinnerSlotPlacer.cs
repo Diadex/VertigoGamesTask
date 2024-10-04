@@ -37,7 +37,7 @@ public class SpinnerSlotPlacer : MonoBehaviour
 
             // then set the values in each slotUIGameObj's image and text field according to the slotObtainableItems
             Obtainable currentItem = slotObtainableItems[i];
-            SlotUIManager slotInformation = slotUIGameObjects[i].GetComponent<SlotUIManager>();
+            ItemDisplayUIManager slotInformation = slotUIGameObjects[i].GetComponent<ItemDisplayUIManager>();
             if (slotInformation != null)
             {
                 slotInformation.SetImageAndText(currentItem);

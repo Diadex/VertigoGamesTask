@@ -12,9 +12,9 @@ public class UIDisplayInformationManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI roundText;
     [SerializeField]
-    private string cashName = "cash";
+    private string cashName = "Cash";
     [SerializeField]
-    private string goldName = "gold";
+    private string goldName = "Gold";
 
     private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
 

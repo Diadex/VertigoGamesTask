@@ -31,7 +31,10 @@ public class ButtonHandler : MonoBehaviour
     public void ButtonSetActive( bool isActiveVar)
     {
         buttonActiveGameObj.SetActive(isActiveVar);
-        buttonDisabledGameObj.SetActive(!isActiveVar);
+        if (buttonDisabledGameObj!= null)
+        {
+            buttonDisabledGameObj.SetActive(!isActiveVar);
+        }
         isActive = isActiveVar;
     }
 

@@ -14,9 +14,9 @@ public class ObtainedItemsManager : MonoBehaviour
     [SerializeField]
     private List<Obtainable> permaStorage;
     [SerializeField]
-    private string cashName = "cash";
+    private string cashName = "Cash";
     [SerializeField]
-    private string goldName = "gold";
+    private string goldName = "Gold";
 
     // int is 1 if temp, 2 if perma storage
     public enum StorageType
@@ -70,6 +70,21 @@ public class ObtainedItemsManager : MonoBehaviour
             return Obtainable.Clone(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
         }
     }
+    private Obtainable CloneAddObtainable(Obtainable storageItem, int amount)
+    {
+        // Check if the storage item is a Chest
+        if (storageItem is Chest chestItem)
+        {
+            // Clone using the Chest's Clone method
+            return chestItem.Clone(chestItem.GetAmount() + amount);
+        }
+        else
+        {
+            Debug.Log("storageItem.GetAmount() + amount is " + (storageItem.GetAmount() + amount));
+            // Fallback to the Obtainable's Clone method
+            return Obtainable.Clone(storageItem, storageItem.GetAmount() + amount);
+        }
+    }
 
     public void MoveTemporaryToPermanentStorage()
     {
@@ -77,9 +92,47 @@ public class ObtainedItemsManager : MonoBehaviour
         for (int i = 0; i < tempStorageSize; i++)
         {
             Obtainable currentItem = temporaryStorage[i];
-            AddItemToStorage(StorageType.PermaStorage, currentItem);
+            if (currentItem.GetAmount() >= 0)
+            {
+                AddItemToStorage(StorageType.PermaStorage, currentItem);
+            }
         }
+        ClearTempStorage();
+    }
+
+    public void ClearTempStorage()
+    {
         temporaryStorage.Clear();
+    }
+
+    // returns false when there isn't enough gold currency
+    public bool SpendGold( int spentAmount)
+    {
+        Obtainable gold = FindObtainableInPermaStorageWithName(goldName);
+        if (gold != null && gold.GetAmount() >= spentAmount)
+        {
+            CloneAddObtainable(gold, -spentAmount);
+            gold = FindObtainableInPermaStorageWithName(goldName);
+            Debug.Log("the current goldAmount is "+ gold.GetAmount());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private Obtainable FindObtainableInPermaStorageWithName(string name)
+    {
+        int permaStorageSize = permaStorage.Count;
+        for (int i = 0; i < permaStorageSize; i++)
+        {
+            if (permaStorage[i].GetName().Equals(name))
+            {
+                return permaStorage[i];
+            }
+        }
+        return null;
     }
 
     public List<(string currency, int amount)> GetCurrencyList()
