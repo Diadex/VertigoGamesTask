@@ -12,6 +12,8 @@ public class SlotUIManager : MonoBehaviour
     [SerializeField]
     private GameObject TextGameObject; // Reference to the amount writing GameObject
 
+    private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
+
     public void SetImageAndText(Obtainable slotItem)
     {
         Image imageComponent = ImageGameObject.GetComponent<Image>();
@@ -24,27 +26,9 @@ public class SlotUIManager : MonoBehaviour
         TextMeshProUGUI textComponent = TextGameObject.GetComponent<TextMeshProUGUI>();
         if (textComponent != null)
         {
-            textComponent.text = GetTextUIAmountDisplay(slotItem.GetAmount());
+            textComponent.text = formatter.GetTextUIAmountDisplayTimes(slotItem.GetAmount(), false);
         }
     }
 
-    private string GetTextUIAmountDisplay(int amount)
-    {
-        if (amount < 0)
-        {
-            return "";
-        }
-        else if (amount % 1000000 == 0)
-        {
-            amount = amount / 1000000;
-            return "x" + amount + "M";
-        }
-        else if (amount % 1000 == 0)
-        {
-            amount = amount / 1000;
-            return "x" + amount + "K";
-        }
-        return "x" + amount;
-    }
 
 }

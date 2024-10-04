@@ -13,6 +13,10 @@ public class ObtainedItemsManager : MonoBehaviour
     private List<Obtainable> temporaryStorage;
     [SerializeField]
     private List<Obtainable> permaStorage;
+    [SerializeField]
+    private string cashName = "cash";
+    [SerializeField]
+    private string goldName = "gold";
 
     // int is 1 if temp, 2 if perma storage
     public enum StorageType
@@ -66,4 +70,37 @@ public class ObtainedItemsManager : MonoBehaviour
             return Obtainable.Clone(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
         }
     }
+
+    public void MoveTemporaryToPermanentStorage()
+    {
+        int tempStorageSize = temporaryStorage.Count;
+        for (int i = 0; i < tempStorageSize; i++)
+        {
+            Obtainable currentItem = temporaryStorage[i];
+            AddItemToStorage(StorageType.PermaStorage, currentItem);
+        }
+        temporaryStorage.Clear();
+    }
+
+    public List<(string currency, int amount)> GetCurrencyList()
+    {
+        List<(string currency, int amount)> result = new List<(string currency, int amount)> { (cashName, 0), (goldName, 0) };
+
+        int permaStorageSize = permaStorage.Count;
+        for (int i = 0; i < permaStorageSize; i++)
+        {
+            Obtainable current = permaStorage[i];
+            if (current.GetName().Equals(cashName))
+            {
+                result[0] = (cashName, current.GetAmount());
+            }
+            else if (current.GetName().Equals(goldName))
+            {
+                result[1] = (goldName, current.GetAmount());
+            }
+        }
+        return result;
+    }
+
+
 }

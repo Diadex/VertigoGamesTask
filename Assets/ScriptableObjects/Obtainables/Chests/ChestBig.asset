@@ -16,6 +16,16 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 572259ac569ff914597f14982e0fac6e, type: 3}
   amount: 1
   color: {r: 0.6577053, g: 1, b: 0, a: 1}
+  rarity: 
+  explanation: 
   containerType: big
-  obtainableItems: []
-  obtainableItemsCoefficients: []
+  obtainableItems:
+  - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
+  - {fileID: 11400000, guid: 0563104bd15064b46aa16ce634544daa, type: 2}
+  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
+  - {fileID: 11400000, guid: 8b869ae1e07876e419661b58d9919bed, type: 2}
+  obtainableItemsCoefficients:
+  - 1
+  - 1
+  - 1
+  - 1

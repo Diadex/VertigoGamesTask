@@ -11,14 +11,37 @@ public class UIDisplayInformationManager : MonoBehaviour
     private TextMeshProUGUI goldCurrencyText;
     [SerializeField]
     private TextMeshProUGUI roundText;
+    [SerializeField]
+    private string cashName = "cash";
+    [SerializeField]
+    private string goldName = "gold";
 
-    public void SetCashCurrencyText(string cash)
+    private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
+
+    public void DisplayCurrencyInfo( List<(string currency, int amount)> currencies)
     {
-        cashCurrencyText.text = cash;
+        int currencyCount = currencies.Count;
+        for (int i = 0; i < currencyCount; i ++)
+        {
+            string currentCurrency = currencies[i].currency;
+            if (currentCurrency.Equals(cashName))
+            {
+                SetCashCurrencyText(currencies[i].amount);
+            }
+            else if (currentCurrency.Equals(goldName))
+            {
+                SetGoldCurrencyText(currencies[i].amount);
+            }
+        }
     }
-    public void SetGoldCurrencyText(string gold)
+
+    private void SetCashCurrencyText(int cash)
     {
-        goldCurrencyText.text = gold;
+        cashCurrencyText.text = formatter.GetTextUIAmountDisplay(cash, true);
+    }
+    private void SetGoldCurrencyText(int gold)
+    {
+        goldCurrencyText.text = formatter.GetTextUIAmountDisplay(gold, true);
     }
     public void SetRoundText(int round)
     {
