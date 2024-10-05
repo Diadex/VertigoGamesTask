@@ -63,6 +63,7 @@ public class SpinnerManager : MonoBehaviour
     {
         spinnerWheels = spinnerWheelUIManager.GetSpinnerWheelUIReferences();
         currentState = SpinnerState.SetRoundToBeginning;
+        obtainedItemsUIManager.SetUIObtainedStorage();
     }
 
     private void Update()
@@ -99,8 +100,8 @@ public class SpinnerManager : MonoBehaviour
                     spinnerButtonHandler.ButtonSetActive(false);
                     obtainedItemsUIDisplayButton.SetFlag(false);
                     // open the UI for obtained items
-                    obtainedItemsUIManager.EnableUI(true);
                     obtainedItemsUIManager.SetUIObtainedStorage();
+                    obtainedItemsUIManager.EnableUI(true);
                     currentState = SpinnerState.ObtainableItemsDisplayed;
                 }
 

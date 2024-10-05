@@ -12,9 +12,13 @@ public class ObtainedItemsUIManager : MonoBehaviour
     [SerializeField]
     private GameObject obtainedItemPrefab;
     [SerializeField]
-    private Transform prefabGrouperUIPerma;
+    private RectTransform prefabGrouperUIPerma;
     [SerializeField]
-    private Transform prefabGrouperUITemp;
+    private RectTransform prefabGrouperUITemp;
+    [SerializeField]
+    private float singleRowHeight = 150f;
+    [SerializeField]
+    private int columnCount = 6;
 
     public void EnableUI(bool isEnabled)
     {
@@ -32,6 +36,28 @@ public class ObtainedItemsUIManager : MonoBehaviour
         List<Obtainable> obtainedItemsList = obtainedItemsManager.GetStorageList(storageType);
         int obtainedSize = obtainedItemsList.Count;
         int childCount = prefabGrouperUITransform.childCount;
+        // update the height of the storageUI's
+        if (obtainedSize > 0)
+        {
+            float heightAmount = (((obtainedSize-1) / columnCount)+1) * singleRowHeight;
+
+            if (storageType == ObtainedItemsManager.StorageType.PermaStorage)
+            {
+                if (prefabGrouperUIPerma != null)
+                {
+                    Vector2 size = prefabGrouperUIPerma.sizeDelta;
+                    prefabGrouperUIPerma.sizeDelta = new Vector2(size.x, heightAmount);
+                }
+            }
+            else
+            {
+                if (prefabGrouperUITemp != null)
+                {
+                    Vector2 size = prefabGrouperUITemp.sizeDelta;
+                    prefabGrouperUITemp.sizeDelta = new Vector2(size.x, heightAmount);
+                }
+            }
+        }
 
         // Update existing children
         UpdateExistingChildren(obtainedItemsList, obtainedSize, childCount, prefabGrouperUITransform);
