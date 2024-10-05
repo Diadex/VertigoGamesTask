@@ -143,5 +143,10 @@ public class ObtainedItemsManager : MonoBehaviour
         return result;
     }
 
+    // return a copy of permastorage
+    public List<Obtainable> GetPermaStorageList()
+    {
+        return new List<Obtainable>(permaStorage);
+    }
 
 }

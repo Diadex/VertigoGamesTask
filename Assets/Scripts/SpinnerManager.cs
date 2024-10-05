@@ -98,7 +98,8 @@ public class SpinnerManager : MonoBehaviour
                 {
                     obtainedItemsUIDisplayButton.SetFlag(false);
                     // open the UI for obtained items
-                    obtainedItemsUIManager.enableUI(true);
+                    obtainedItemsUIManager.EnableUI(true);
+                    obtainedItemsUIManager.SetUIPermaStorage();
                     currentState = SpinnerState.ObtainableItemsDisplayed;
                 }
 
@@ -113,7 +114,7 @@ public class SpinnerManager : MonoBehaviour
                 if (obtainedItemsUIDisplayExitButton.GetFlag())
                 {
                     obtainedItemsUIDisplayExitButton.SetFlag(false);
-                    obtainedItemsUIManager.enableUI(false);
+                    obtainedItemsUIManager.EnableUI(false);
                     obtainedItemsUIDisplayButton.ButtonSetActive(true);
                     currentState = SpinnerState.WaitingForButtonPress;
                 }

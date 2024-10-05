@@ -3346,6 +3346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElementObtainedItemsDisplay: {fileID: 523841451}
+  obtainedItemsManager: {fileID: 20471953}
+  obtainedItemPrefab: {fileID: 1759260402816251900, guid: 867d983a7b07e8f458c50c161951ecdf, type: 3}
+  prefabGrouperUI: {fileID: 397557175}
 --- !u!1 &528229073
 GameObject:
   m_ObjectHideFlags: 0
