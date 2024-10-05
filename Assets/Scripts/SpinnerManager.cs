@@ -123,7 +123,6 @@ public class SpinnerManager : MonoBehaviour
             case SpinnerState.Spinning:
                 if (!spinnerAnimator.CheckAnimation())
                 {
-                    Debug.Log("Spinner result is " + spinnerResult + ", so it is " + itemResult.GetAmount() + " " + itemResult.GetName() + " obtainable");
                     obtainedItemsManager.AddItemToStorage(ObtainedItemsManager.StorageType.TempStorage, itemResult);
                     // check if we exploded or not and display the UI accordingly.
                     if (spinnerResultManager.DisplaySpinnerResultUI(itemResult))
@@ -180,7 +179,6 @@ public class SpinnerManager : MonoBehaviour
 
     private void InitializeSpinner()
     {
-        Debug.Log("Initialized");
         round++;
         uiDisplayInformationManager.SetRoundText(round);
         string roundType = spinnerWheelUIManager.SpinnerInitialise(round);

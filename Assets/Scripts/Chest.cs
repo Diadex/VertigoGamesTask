@@ -13,6 +13,8 @@ namespace Containers
         [SerializeField]
         private string containerType;
         [SerializeField]
+        private int numberOfItemsInChest;
+        [SerializeField]
         private List<Obtainable> obtainableItems;
         [SerializeField]
         private List<float> obtainableItemsCoefficients;

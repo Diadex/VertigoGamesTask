@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce4c5776b39e1484698570988e2f977c, type: 3}
-  m_Name: ChestBig
+  m_Name: ChestSilver
   m_EditorClassIdentifier: 
-  itemName: ChestBig
-  image: {fileID: 21300000, guid: 572259ac569ff914597f14982e0fac6e, type: 3}
+  itemName: ChestSilver
+  image: {fileID: 21300000, guid: 8a03cd3e0c5925449bb70df1b5dc3e88, type: 3}
   amount: 1
-  color: {r: 0.42221326, g: 1, b: 0.23113209, a: 1}
+  color: {r: 1, g: 0.9923756, b: 0.7311321, a: 1}
   rarity: 
   explanation: 
-  containerType: big
-  numberOfItemsInChest: 8
+  containerType: silver
+  numberOfItemsInChest: 5
   obtainableItems:
   - {fileID: 11400000, guid: 20c555aa36424be49b0ae808d3ffbf76, type: 2}
   - {fileID: 11400000, guid: 5e1c2d624110b3b4f8052608b103f1d3, type: 2}
@@ -47,19 +47,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4292fd66f46209241b3f76c8d2a0081b, type: 2}
   - {fileID: 11400000, guid: 5a07184967fb16344ade15a8791cdb9f, type: 2}
   - {fileID: 11400000, guid: 32a24a4c38f7bf045b52ab5f276cf7b2, type: 2}
+  - {fileID: 11400000, guid: 843ad7084c6707646a1d4b8ca3d532b7, type: 2}
+  - {fileID: 11400000, guid: c22e66fc844a84841b25861779006785, type: 2}
+  - {fileID: 11400000, guid: 7b32ea75c30b3b04084dbbca648f253c, type: 2}
+  - {fileID: 11400000, guid: e9e1f1ace98856941ad91cd78ef2635a, type: 2}
+  - {fileID: 11400000, guid: 748bc983a275f5749951019af0e0da08, type: 2}
+  - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
+  - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
+  - {fileID: 11400000, guid: 5da1982ea673dfd45a263e38164da8e8, type: 2}
+  - {fileID: 11400000, guid: ab869e207359efe44b81b3eb0cb3a21d, type: 2}
   obtainableItemsCoefficients:
   - 100
   - 70
   - 60
-  - 50
-  - 20
+  - 40
   - 10
+  - 5
   - 80
-  - 100
-  - 80
-  - 50
+  - 60
+  - 30
   - 20
   - 10
+  - 5
   - 30
   - 30
   - 30
@@ -74,3 +83,12 @@ MonoBehaviour:
   - 20
   - 10
   - 10
+  - 150
+  - 150
+  - 150
+  - 150
+  - 150
+  - 150
+  - 150
+  - 150
+  - 150

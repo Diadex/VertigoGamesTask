@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce4c5776b39e1484698570988e2f977c, type: 3}
-  m_Name: ChestBig
+  m_Name: ChestSuper
   m_EditorClassIdentifier: 
-  itemName: ChestBig
-  image: {fileID: 21300000, guid: 572259ac569ff914597f14982e0fac6e, type: 3}
+  itemName: ChestSuper
+  image: {fileID: 21300000, guid: 8daa26f09c8dc344e9cca30d1de4227a, type: 3}
   amount: 1
-  color: {r: 0.42221326, g: 1, b: 0.23113209, a: 1}
+  color: {r: 1, g: 0.2657968, b: 0.16509432, a: 1}
   rarity: 
   explanation: 
-  containerType: big
-  numberOfItemsInChest: 8
+  containerType: super
+  numberOfItemsInChest: 16
   obtainableItems:
   - {fileID: 11400000, guid: 20c555aa36424be49b0ae808d3ffbf76, type: 2}
   - {fileID: 11400000, guid: 5e1c2d624110b3b4f8052608b103f1d3, type: 2}
@@ -51,15 +51,15 @@ MonoBehaviour:
   - 100
   - 70
   - 60
+  - 40
   - 50
-  - 20
-  - 10
-  - 80
-  - 100
-  - 80
   - 50
+  - 80
+  - 60
+  - 30
   - 20
-  - 10
+  - 50
+  - 50
   - 30
   - 30
   - 30
