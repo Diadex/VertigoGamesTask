@@ -19,10 +19,13 @@ public class SpinnerAnimator : MonoBehaviour
     private int rotationsSlowDown = 4;  // Number of full rotations during slow-down
     [SerializeField]
     private float spinnerEdgeClosenessTreshold = 0.5f;  // 0.5 will always stop at center. 0 will stop anywhere.
+    [SerializeField]
+    private GameObject particleSystemSlowDownSparks;
 
     private float totalDuration;  // Total duration of the spin animation
     private float elapsedTime;    // Time counter for tracking the animation progress
     private bool isSpinning;      // Flag to indicate if the spin is in progress
+    private float slowDownAt;
 
     public void SpinWheels(GameObject[] wheelObjects, double spinnerResult, int numberOfItems)
     {
@@ -34,8 +37,10 @@ public class SpinnerAnimator : MonoBehaviour
         finalAngle = finalAngle + UnityEngine.Random.Range( ((float)(slotAngle* spinnerEdgeClosenessTreshold)), ((float)(slotAngle* (1- spinnerEdgeClosenessTreshold)))); ;
         // Calculate the total duration of the animation
         totalDuration = spinSpeedUpDuration + spinNoSpeedLossDuration + spinSlowDownDuration;
+        slowDownAt = spinSpeedUpDuration + spinNoSpeedLossDuration;
         elapsedTime = 0f;  // Reset the elapsed time
         isSpinning = true;  // Set the spinning flag to true
+        particleSystemSlowDownSparks.SetActive(true);
 
         for (int i = 0; i < wheelObjects.Length; i++)
         {
@@ -78,6 +83,7 @@ public class SpinnerAnimator : MonoBehaviour
             yield return null; // Wait for the next frame
         }
         isSpinning = false; // Set spinning flag to false when done
+        particleSystemSlowDownSparks.SetActive(false);
     }
 
     public bool CheckAnimation()

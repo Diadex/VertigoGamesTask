@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour
 {
-    [SerializeField] // The UI button
+    [SerializeField] // The UI button RectTransform
     private RectTransform buttonRectTransform;
-    [SerializeField] // The UI button
+    [SerializeField] // The active state button GameObject
     private GameObject buttonActiveGameObj;
-    [SerializeField] // The UI button
+    [SerializeField] // The disabled button GameObject
     private GameObject buttonDisabledGameObj;
+    [SerializeField] // The camera used in Screen Space - Camera mode
+    private Camera uiCamera;
+
     // flag true when the button is pressed.
     private bool flag;
     private bool isActive = true;
@@ -19,7 +22,7 @@ public class ButtonHandler : MonoBehaviour
     {
         if (isActive && Input.GetMouseButtonDown(0))
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(buttonRectTransform, Input.mousePosition, null))
+            if (RectTransformUtility.RectangleContainsScreenPoint(buttonRectTransform, Input.mousePosition, uiCamera))
             {
                 SetFlag(true);
                 Debug.Log("Custom UI element clicked");
@@ -27,11 +30,10 @@ public class ButtonHandler : MonoBehaviour
         }
     }
 
-
-    public void ButtonSetActive( bool isActiveVar)
+    public void ButtonSetActive(bool isActiveVar)
     {
         buttonActiveGameObj.SetActive(isActiveVar);
-        if (buttonDisabledGameObj!= null)
+        if (buttonDisabledGameObj != null)
         {
             buttonDisabledGameObj.SetActive(!isActiveVar);
         }
