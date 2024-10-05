@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Super Chest
   image: {fileID: 21300000, guid: 8daa26f09c8dc344e9cca30d1de4227a, type: 3}
   amount: 1
-  colorType: {r: 0.8113208, g: 0.21048418, b: 0.21048418, a: 1}
+  colorType: {r: 1, g: 0.08962262, b: 0.16304311, a: 1}
   rarity: 
   explanation: 
   containerType: super

@@ -13,6 +13,8 @@ public class ItemDisplayUIManager : MonoBehaviour
     private List<GameObject> colorComponent; // Reference to the image GameObject
     [SerializeField]
     private GameObject textGameObject; // Reference to the amount writing GameObject
+    [SerializeField]
+    private List<float> colorMixAmount;
 
     private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
 
@@ -34,8 +36,21 @@ public class ItemDisplayUIManager : MonoBehaviour
                 Image imageColorComponent = colorComponent[i].GetComponent<Image>();
                 if (imageColorComponent != null)
                 {
-                    imageColorComponent.color = slotItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
+                    // Get the current color
+                    Color currentColor = imageColorComponent.color;
+
+                    // Get the new color from the slot item
+                    Color newColor = slotItem.GetColor();
+
+                    // Interpolate between the current color and the new color
+
+                    // Create the blended color
+                    Color blendedColor = Color.Lerp(currentColor, newColor, colorMixAmount[i]);
+
+                    // Set the alpha to the current alpha value
+                    imageColorComponent.color = new Color(blendedColor.r, blendedColor.g, blendedColor.b, currentColor.a);
                 }
+
             }
         }
 

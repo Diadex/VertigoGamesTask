@@ -34,7 +34,7 @@ public class SpinnerResultManager : MonoBehaviour
         else
         {
             obtainedCardUI.SetImageAndText(obtainedResult);
-            obtainedItemNameText.text = "You Won: " + obtainedResult.GetName() + "!";
+            obtainedItemNameText.text = "You Won: \n" + obtainedResult.GetName() + "!";
             DisplayWonItemResultUI();
             return false;
         }

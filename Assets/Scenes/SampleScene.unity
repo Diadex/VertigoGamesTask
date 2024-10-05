@@ -5044,7 +5044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 26}
+  m_AnchoredPosition: {x: 0, y: 23}
   m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1023985526
@@ -5059,7 +5059,7 @@ GameObject:
   - component: {fileID: 1023985529}
   - component: {fileID: 1023985528}
   m_Layer: 5
-  m_Name: ZoneScreen
+  m_Name: ZoneScreenOuter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,7 +5097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2631964, g: 0.3018868, b: 0.20363119, a: 0.92941177}
+  m_Color: {r: 0.23529412, g: 0.23529412, b: 0.23529412, a: 0.92941177}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5134,7 +5134,7 @@ GameObject:
   - component: {fileID: 1027346079}
   - component: {fileID: 1027346078}
   m_Layer: 5
-  m_Name: ZoneScreen
+  m_Name: ZoneScreenInner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6963,7 +6963,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 140, y: 140}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343301106
 MonoBehaviour:
@@ -7483,6 +7483,7 @@ MonoBehaviour:
   imageGameObject: {fileID: 0}
   colorComponent: []
   textGameObject: {fileID: 0}
+  colorMixAmount: []
 --- !u!114 &1418553560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8360,8 +8361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: 296}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: -0.000030517578, y: 307}
+  m_SizeDelta: {x: 600, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1614414401
 MonoBehaviour:
@@ -8383,7 +8384,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Won Big Chest!
+  m_text: 'You Won:
+
+    Big Chest!!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9859,7 +9862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1945155821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9912,7 +9915,14 @@ MonoBehaviour:
   colorComponent:
   - {fileID: 1343301104}
   - {fileID: 1313868938}
+  - {fileID: 1023985526}
+  - {fileID: 1027346076}
   textGameObject: {fileID: 443226867}
+  colorMixAmount:
+  - 0.6
+  - 0.3
+  - 0.01
+  - 0.05
 --- !u!1 &1952799604
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,8 +52,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageGameObject: {fileID: 3955161442939275946}
-  colorComponent: []
+  colorComponent:
+  - {fileID: 2748802650202494442}
   textGameObject: {fileID: 7225643866696348292}
+  colorMixAmount:
+  - 0.65
 --- !u!1 &2748802650202494442
 GameObject:
   m_ObjectHideFlags: 0
