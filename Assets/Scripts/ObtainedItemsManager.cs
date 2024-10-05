@@ -144,9 +144,16 @@ public class ObtainedItemsManager : MonoBehaviour
     }
 
     // return a copy of permastorage
-    public List<Obtainable> GetPermaStorageList()
+    public List<Obtainable> GetStorageList( StorageType storage)
     {
-        return new List<Obtainable>(permaStorage);
+        if (storage == StorageType.PermaStorage)
+        {
+            return new List<Obtainable>(permaStorage);
+        }
+        else
+        {
+            return new List<Obtainable>(temporaryStorage);
+        }
     }
 
 }

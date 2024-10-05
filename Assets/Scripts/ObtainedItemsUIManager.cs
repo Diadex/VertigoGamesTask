@@ -12,54 +12,38 @@ public class ObtainedItemsUIManager : MonoBehaviour
     [SerializeField]
     private GameObject obtainedItemPrefab;
     [SerializeField]
-    private Transform prefabGrouperUI;
+    private Transform prefabGrouperUIPerma;
+    [SerializeField]
+    private Transform prefabGrouperUITemp;
 
     public void EnableUI(bool isEnabled)
     {
         uiElementObtainedItemsDisplay.SetActive(isEnabled);
     }
-    /*
-    public void SetUIPermaStorage()
+    
+    public void SetUIObtainedStorage()
     {
-        List<Obtainable> obtainedItemsList = obtainedItemsManager.GetPermaStorageList();
-        int obtainedSize = obtainedItemsList.Count;
-        for (int i = 0; i < obtainedSize; i++)
-        {
-            // Instantiate the prefab
-            GameObject newPrefab = Instantiate(obtainedItemPrefab);
-
-            // Set the parent to the specified GameObject
-            newPrefab.transform.SetParent(prefabGrouperUI);
-            ItemDisplayUIManager itemDisplay = newPrefab.GetComponent<ItemDisplayUIManager>();
-            if (itemDisplay == null)
-            {
-                Debug.Log("Error: prefab does not have an ItemDisplayUIManager script! ObtainedItemsUIManager.");
-            }
-            else
-            {
-                itemDisplay.SetImageAndText(obtainedItemsList[i]);
-            }
-        }
+        SetUIStorage(prefabGrouperUIPerma, ObtainedItemsManager.StorageType.PermaStorage);
+        SetUIStorage(prefabGrouperUITemp, ObtainedItemsManager.StorageType.TempStorage);
     }
-    */
 
-    public void SetUIPermaStorage()
+    private void SetUIStorage(Transform prefabGrouperUITransform, ObtainedItemsManager.StorageType storageType)
     {
-        List<Obtainable> obtainedItemsList = obtainedItemsManager.GetPermaStorageList();
+        List<Obtainable> obtainedItemsList = obtainedItemsManager.GetStorageList(storageType);
         int obtainedSize = obtainedItemsList.Count;
-        int childCount = prefabGrouperUI.childCount;
+        int childCount = prefabGrouperUITransform.childCount;
 
         // Update existing children
-        UpdateExistingChildren(obtainedItemsList, obtainedSize, childCount);
+        UpdateExistingChildren(obtainedItemsList, obtainedSize, childCount, prefabGrouperUITransform);
 
         // Instantiate new prefabs if necessary
-        InstantiateNewPrefabs(obtainedItemsList, obtainedSize, childCount);
+        InstantiateNewPrefabs(obtainedItemsList, obtainedSize, childCount, prefabGrouperUITransform);
 
         // Remove any excess prefabs
-        RemoveExcessChildren(obtainedSize, childCount);
+        RemoveExcessChildren(obtainedSize, childCount, prefabGrouperUITransform);
     }
 
-    private void UpdateExistingChildren(List<Obtainable> obtainedItemsList, int obtainedSize, int childCount)
+    private void UpdateExistingChildren(List<Obtainable> obtainedItemsList, int obtainedSize, int childCount, Transform prefabGrouperUI)
     {
         for (int i = 0; i < Mathf.Min(obtainedSize, childCount); i++)
         {
@@ -78,7 +62,7 @@ public class ObtainedItemsUIManager : MonoBehaviour
         }
     }
 
-    private void InstantiateNewPrefabs(List<Obtainable> obtainedItemsList, int obtainedSize, int childCount)
+    private void InstantiateNewPrefabs(List<Obtainable> obtainedItemsList, int obtainedSize, int childCount, Transform prefabGrouperUI)
     {
         for (int i = childCount; i < obtainedSize; i++)
         {
@@ -102,7 +86,7 @@ public class ObtainedItemsUIManager : MonoBehaviour
         }
     }
 
-    private void RemoveExcessChildren(int obtainedSize, int childCount)
+    private void RemoveExcessChildren(int obtainedSize, int childCount, Transform prefabGrouperUI)
     {
         for (int i = obtainedSize; i < childCount; i++)
         {

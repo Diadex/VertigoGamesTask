@@ -99,7 +99,7 @@ public class SpinnerManager : MonoBehaviour
                     obtainedItemsUIDisplayButton.SetFlag(false);
                     // open the UI for obtained items
                     obtainedItemsUIManager.EnableUI(true);
-                    obtainedItemsUIManager.SetUIPermaStorage();
+                    obtainedItemsUIManager.SetUIObtainedStorage();
                     currentState = SpinnerState.ObtainableItemsDisplayed;
                 }
 
