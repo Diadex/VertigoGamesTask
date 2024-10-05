@@ -22,6 +22,8 @@ public class SpinnerManager : MonoBehaviour
     private SpinnerPanelUIManager spinnerPanelUIManager;
     [SerializeField]
     private ObtainedItemsManager obtainedItemsManager;
+    [SerializeField]
+    private ObtainedItemsUIManager obtainedItemsUIManager;
 
     [SerializeField]
     private ButtonHandler spinnerButtonHandler;
@@ -33,6 +35,10 @@ public class SpinnerManager : MonoBehaviour
     private ButtonHandler explodeResultReviveButtonHandler;
     [SerializeField]
     private ButtonHandler wonResultButtonHandler;
+    [SerializeField]
+    private ButtonHandler obtainedItemsUIDisplayButton;
+    [SerializeField]
+    private ButtonHandler obtainedItemsUIDisplayExitButton;
 
     private enum SpinnerState
     {
@@ -87,6 +93,29 @@ public class SpinnerManager : MonoBehaviour
                     obtainedItemsManager.MoveTemporaryToPermanentStorage();
                     // could potentially add a display all won results state
                     currentState = SpinnerState.SetRoundToBeginning;
+                }
+                else if (obtainedItemsUIDisplayButton.GetFlag())
+                {
+                    obtainedItemsUIDisplayButton.SetFlag(false);
+                    // open the UI for obtained items
+                    obtainedItemsUIManager.enableUI(true);
+                    currentState = SpinnerState.ObtainableItemsDisplayed;
+                }
+
+                if (currentState != SpinnerState.WaitingForButtonPress)
+                {
+                    // display the obtainedItemsUIButton unless we are at this state
+                    obtainedItemsUIDisplayButton.ButtonSetActive(false);
+                }
+                break;
+
+            case SpinnerState.ObtainableItemsDisplayed:
+                if (obtainedItemsUIDisplayExitButton.GetFlag())
+                {
+                    obtainedItemsUIDisplayExitButton.SetFlag(false);
+                    obtainedItemsUIManager.enableUI(false);
+                    obtainedItemsUIDisplayButton.ButtonSetActive(true);
+                    currentState = SpinnerState.WaitingForButtonPress;
                 }
                 break;
 
@@ -168,6 +197,7 @@ public class SpinnerManager : MonoBehaviour
 
         spinnerButtonHandler.ButtonSetActive(true);
         leaveButtonHandler.ButtonSetActive(true);
+        obtainedItemsUIDisplayButton.ButtonSetActive(true);
     }
 
 
