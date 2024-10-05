@@ -36,21 +36,25 @@ public class ItemDisplayUIManager : MonoBehaviour
                 Image imageColorComponent = colorComponent[i].GetComponent<Image>();
                 if (imageColorComponent != null)
                 {
-                    // Get the current color
-                    Color currentColor = imageColorComponent.color;
+                    // Get the current (grayscale) color
+                    Color grayscaleColor = imageColorComponent.color;
+
+                    // Convert the current color to grayscale value (luminance)
+                    float grayscaleValue = grayscaleColor.r * 0.299f + grayscaleColor.g * 0.587f + grayscaleColor.b * 0.114f;
 
                     // Get the new color from the slot item
                     Color newColor = slotItem.GetColor();
 
-                    // Interpolate between the current color and the new color
+                    // Blend the new color with the grayscale intensity
+                    Color blendedColor = new Color(
+                        Mathf.Lerp(grayscaleValue, newColor.r, colorMixAmount[i]),
+                        Mathf.Lerp(grayscaleValue, newColor.g, colorMixAmount[i]),
+                        Mathf.Lerp(grayscaleValue, newColor.b, colorMixAmount[i])
+                    );
 
-                    // Create the blended color
-                    Color blendedColor = Color.Lerp(currentColor, newColor, colorMixAmount[i]);
-
-                    // Set the alpha to the current alpha value
-                    imageColorComponent.color = new Color(blendedColor.r, blendedColor.g, blendedColor.b, currentColor.a);
+                    // Retain the alpha of the current color
+                    imageColorComponent.color = new Color(blendedColor.r, blendedColor.g, blendedColor.b, grayscaleColor.a);
                 }
-
             }
         }
 
