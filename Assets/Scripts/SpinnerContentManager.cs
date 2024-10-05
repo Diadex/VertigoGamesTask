@@ -74,5 +74,9 @@ public class SpinnerContentManager: MonoBehaviour
     {
         return currentSpinner.GetIsSafeZone();
     }
+    public Color GetSpinnerZoneColor()
+    {
+        return currentSpinner.GetSpinnerZoneColor();
+    }
 
 }

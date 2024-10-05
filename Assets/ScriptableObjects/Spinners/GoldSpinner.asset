@@ -33,3 +33,4 @@ MonoBehaviour:
   - 1
   obtainableRewardRateWriting: Up To x10 Rewards
   isSafeZone: 1
+  spinnerZoneColor: {r: 1, g: 0.91090006, b: 0.33490568, a: 1}

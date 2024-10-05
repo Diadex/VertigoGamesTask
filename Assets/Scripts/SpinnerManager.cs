@@ -194,7 +194,8 @@ public class SpinnerManager : MonoBehaviour
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
         
-        spinnerPanelUIManager.SetSpinWriting(roundType, spinnerContentManager.GetObtainableRewardRateWriting());
+        spinnerPanelUIManager.SetSpinWriting(roundType, 
+                            spinnerContentManager.GetObtainableRewardRateWriting(), spinnerContentManager.GetSpinnerZoneColor());
 
         spinnerButtonHandler.ButtonSetActive(true);
         leaveButtonHandler.ButtonSetActive(true);

@@ -14,10 +14,12 @@ public class SpinnerPanelUIManager : MonoBehaviour
     [SerializeField]
     private GameObject leaveButton;
 
-    public void SetSpinWriting(string spinType, string spinRewardWriting)
+    public void SetSpinWriting(string spinType, string spinRewardWriting, Color color)
     {
         spinTypeWriting.text = "" + spinType.ToUpper() + " SPIN!";
+        spinTypeWriting.color = color;
         spinRewardRateWriting.text = spinRewardWriting;
+        spinRewardRateWriting.color = color;
     }
 
     public void OpenButtonsPanel( bool isOpen)

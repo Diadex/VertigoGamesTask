@@ -18,6 +18,8 @@ namespace Containers
         private string obtainableRewardRateWriting = "Up To x2 Rewards";
         [SerializeField]
         private bool isSafeZone = false;
+        [SerializeField]
+        private Color spinnerZoneColor;
 
 
         // In order to ensure the obtainableItems and coefficients have the same number of elements when adding
@@ -52,7 +54,11 @@ namespace Containers
         }
 
 
-
+        public Color GetSpinnerZoneColor()
+        {
+            Debug.Log("SpinnerColor is " + spinnerZoneColor.ToString());
+            return spinnerZoneColor;
+        }
 
 
         // Method to update the editor for the coefficients and the obtainableItems

@@ -14,6 +14,8 @@ public class ObtainedItemsManager : MonoBehaviour
     [SerializeField]
     private List<Obtainable> permaStorage;
     [SerializeField]
+    private List<Obtainable> allStorableObtainablesList;
+    [SerializeField]
     private string cashName = "Cash";
     [SerializeField]
     private string goldName = "Gold";
@@ -23,6 +25,11 @@ public class ObtainedItemsManager : MonoBehaviour
     {
         TempStorage = 1,
         PermaStorage = 2
+    }
+
+    private void Start()
+    {
+        LoadPermanentStorage();
     }
 
     public void AddItemToStorage( StorageType storageType, Obtainable obtainable)
@@ -46,7 +53,7 @@ public class ObtainedItemsManager : MonoBehaviour
             Obtainable storageItem = storage[i];
             if (storageItem.GetName().Equals(addingItem.GetName()))
             {
-                Obtainable copiedItem = CloneAddObtainable(storageItem, addingItem);
+                Obtainable copiedItem = CloneObtainable(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
                 storage.RemoveAt(i);
                 storage.Add(copiedItem);
                 return true;
@@ -55,31 +62,19 @@ public class ObtainedItemsManager : MonoBehaviour
         return false;
     }
 
-
-    private Obtainable CloneAddObtainable(Obtainable storageItem, Obtainable addingItem)
+    // Clone the obtainable item (or chest) with a new amount
+    private Obtainable CloneObtainable(Obtainable storageItem, int amount)
     {
         // Check if the storage item is a Chest
         if (storageItem is Chest chestItem)
         {
             // Clone using the Chest's Clone method
-            return chestItem.Clone(chestItem.GetAmount() + addingItem.GetAmount());
+            return chestItem.Clone(amount);
         }
         else
         {
             // Fallback to the Obtainable's Clone method
-            return Obtainable.Clone(storageItem, storageItem.GetAmount() + addingItem.GetAmount());
-        }
-    }
-    // same method, different parameters
-    private Obtainable CloneAddObtainable(Obtainable storageItem, int amount)
-    {
-        if (storageItem is Chest chestItem)
-        {
-            return chestItem.Clone(chestItem.GetAmount() + amount);
-        }
-        else
-        {
-            return Obtainable.Clone(storageItem, storageItem.GetAmount() + amount);
+            return Obtainable.Clone(storageItem,amount);
         }
     }
 
@@ -95,7 +90,10 @@ public class ObtainedItemsManager : MonoBehaviour
             }
         }
         ClearTempStorage();
+        SavePermanentStorage();
     }
+
+
 
     public void ClearTempStorage()
     {
@@ -113,7 +111,7 @@ public class ObtainedItemsManager : MonoBehaviour
                 Obtainable gold = permaStorage[i];
                 if (gold != null && gold.GetAmount() >= spentAmount)
                 {
-                    Obtainable goldCloned = CloneAddObtainable(gold, -spentAmount);
+                    Obtainable goldCloned = CloneObtainable(gold, gold.GetAmount() -spentAmount);
                     permaStorage.RemoveAt(i);
                     permaStorage.Add(goldCloned);
                     return true;
@@ -154,6 +152,59 @@ public class ObtainedItemsManager : MonoBehaviour
         {
             return new List<Obtainable>(temporaryStorage);
         }
+    }
+
+    private void SavePermanentStorage()
+    {
+        List<string> savedItems = new List<string>();
+
+        foreach (var item in permaStorage)
+        {
+            savedItems.Add(item.GetName() + ":" + item.GetAmount());
+        }
+        string recordedString = string.Join(",", savedItems);
+        PlayerPrefs.SetString("PermanentStorage", recordedString);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadPermanentStorage()
+    {
+        if (PlayerPrefs.HasKey("PermanentStorage"))
+        {
+            string savedData = PlayerPrefs.GetString("PermanentStorage");
+            string[] items = savedData.Split(',');
+
+            foreach (var itemData in items)
+            {
+                string[] parts = itemData.Split(':');
+                string itemName = parts[0];
+                int itemAmount = int.Parse(parts[1]);
+                // Find the corresponding Obtainable object, then add it to permaStorage
+                Obtainable obtainableItem = GetObtainable(itemName);
+                if (obtainableItem != null)
+                {
+                    Obtainable copiedItem = CloneObtainable(obtainableItem, itemAmount);
+                    permaStorage.Add(copiedItem);
+                }
+                else
+                {
+                    Debug.Log("Error: The Obtainable item with a " + itemData+ " itemData is not included in the list. ObtainedItemsManager.");
+                }
+            }
+        }
+    }
+
+    private Obtainable GetObtainable(string itemName)
+    {
+        int permaStorageSize = allStorableObtainablesList.Count;
+        for (int i = 0; i < permaStorageSize; i++)
+        {
+            if (allStorableObtainablesList[i].GetName().Equals(itemName))
+            {
+                return allStorableObtainablesList[i];
+            }
+        }
+        return null;
     }
 
 }
