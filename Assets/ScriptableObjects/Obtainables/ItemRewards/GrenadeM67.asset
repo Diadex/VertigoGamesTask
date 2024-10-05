@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c41d38de51d4c842859aa775957a480, type: 3}
   m_Name: GrenadeM67
   m_EditorClassIdentifier: 
-  itemName: GrenadeM67
+  itemName: Grenade M67
   image: {fileID: 21300000, guid: 9508b7450f6c0ec4b90d72bf0bdc0a45, type: 3}
   amount: 1
-  color: {r: 1, g: 1, b: 1, a: 1}
+  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
   rarity: 
   explanation: 

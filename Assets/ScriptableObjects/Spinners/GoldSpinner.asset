@@ -16,12 +16,12 @@ MonoBehaviour:
   obtainableItems:
   - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
   - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: 0563104bd15064b46aa16ce634544daa, type: 2}
+  - {fileID: 11400000, guid: ee888c7c61de2b8488ed7bf35ab44747, type: 2}
+  - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
+  - {fileID: 11400000, guid: f3841605edc351e45813c2047c172dd4, type: 2}
   - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
-  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: e72eea5efd2814f42b60c8d8f1857aeb, type: 2}
   obtainableItemsCoefficients:
   - 1
   - 1

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4c5776b39e1484698570988e2f977c, type: 3}
   m_Name: ChestBig
   m_EditorClassIdentifier: 
-  itemName: ChestBig
+  itemName: Big Chest
   image: {fileID: 21300000, guid: 572259ac569ff914597f14982e0fac6e, type: 3}
   amount: 1
-  color: {r: 0.42221326, g: 1, b: 0.23113209, a: 1}
+  colorType: {r: 0.2710056, g: 1, b: 0.21226418, a: 1}
   rarity: 
   explanation: 
   containerType: big

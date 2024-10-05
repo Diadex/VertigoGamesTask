@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4c5776b39e1484698570988e2f977c, type: 3}
   m_Name: ChestGold
   m_EditorClassIdentifier: 
-  itemName: ChestGold
+  itemName: Gold Chest
   image: {fileID: 21300000, guid: 0ee530a12181a0449b09d7d45f0de423, type: 3}
   amount: 1
-  color: {r: 0.9339297, g: 1, b: 0, a: 1}
+  colorType: {r: 1, g: 0.951235, b: 0.11792451, a: 1}
   rarity: 
   explanation: 
   containerType: gold

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerType: Silver
   obtainableItems:
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: c9f5456327c484141b7655201e4d3612, type: 2}
+  - {fileID: 11400000, guid: e89386e98096f594b95bcd539269fa7b, type: 2}
   - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
+  - {fileID: 11400000, guid: f0a97e4caf9bd6e429e058c918f17da2, type: 2}
+  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
+  - {fileID: 11400000, guid: e89386e98096f594b95bcd539269fa7b, type: 2}
   - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
   - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
   obtainableItemsCoefficients:
   - 1

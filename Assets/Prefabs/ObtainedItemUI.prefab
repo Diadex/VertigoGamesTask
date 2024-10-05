@@ -51,8 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc480df508132c4b9d2b302e9fd3939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageGameObject: {fileID: 3955161442939275946}
-  TextGameObject: {fileID: 7225643866696348292}
+  imageGameObject: {fileID: 3955161442939275946}
+  colorComponent: []
+  textGameObject: {fileID: 7225643866696348292}
 --- !u!1 &2748802650202494442
 GameObject:
   m_ObjectHideFlags: 0

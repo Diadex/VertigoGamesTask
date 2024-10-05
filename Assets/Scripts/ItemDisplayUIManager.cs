@@ -8,25 +8,44 @@ using StandaloneItems;
 public class ItemDisplayUIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ImageGameObject; // Reference to the image GameObject
+    private GameObject imageGameObject; // Reference to the image GameObject
     [SerializeField]
-    private GameObject TextGameObject; // Reference to the amount writing GameObject
+    private List<GameObject> colorComponent; // Reference to the image GameObject
+    [SerializeField]
+    private GameObject textGameObject; // Reference to the amount writing GameObject
 
     private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
 
     public void SetImageAndText(Obtainable slotItem)
     {
-        Image imageComponent = ImageGameObject.GetComponent<Image>();
-        if (imageComponent != null)
+        if (imageGameObject)
         {
-            imageComponent.sprite = slotItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
-            imageComponent.color = slotItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
+            Image imageComponent = imageGameObject.GetComponent<Image>();
+            if (imageComponent != null)
+            {
+                imageComponent.sprite = slotItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
+            }
         }
 
-        TextMeshProUGUI textComponent = TextGameObject.GetComponent<TextMeshProUGUI>();
-        if (textComponent != null)
+        if (colorComponent != null && colorComponent.Count > 0)
         {
-            textComponent.text = formatter.GetTextUIAmountDisplayTimes(slotItem.GetAmount(), false);
+            for (int i = 0; i < colorComponent.Count; i++)
+            {
+                Image imageColorComponent = colorComponent[i].GetComponent<Image>();
+                if (imageColorComponent != null)
+                {
+                    imageColorComponent.color = slotItem.GetColor(); // Assuming Obtainable has a 'color' property of type Color
+                }
+            }
+        }
+
+        if (textGameObject)
+        {
+            TextMeshProUGUI textComponent = textGameObject.GetComponent<TextMeshProUGUI>();
+            if (textComponent != null)
+            {
+                textComponent.text = formatter.GetTextUIAmountDisplayTimes(slotItem.GetAmount(), false);
+            }
         }
     }
 

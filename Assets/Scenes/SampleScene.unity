@@ -257,8 +257,30 @@ MonoBehaviour:
   permaStorage: []
   allStorableObtainablesList:
   - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
-  - {fileID: 11400000, guid: 0563104bd15064b46aa16ce634544daa, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: 8b869ae1e07876e419661b58d9919bed, type: 2}
+  - {fileID: 11400000, guid: 287f218a457e09641883e94a34406916, type: 2}
+  - {fileID: 11400000, guid: c4938685ac4b92449b8a6e6b3f018312, type: 2}
+  - {fileID: 11400000, guid: f188f7a79ec94e04ebe722e21fe77faa, type: 2}
+  - {fileID: 11400000, guid: 98fd0998e44647740a4c6482f5322600, type: 2}
+  - {fileID: 11400000, guid: 4809c2e2d6caf424eaccba6401a3c3f3, type: 2}
+  - {fileID: 11400000, guid: c1f07c69cea8bdb4f961c7b4e966633b, type: 2}
+  - {fileID: 11400000, guid: 709a64cfbc7981e45a20782423e413b9, type: 2}
+  - {fileID: 11400000, guid: ea8dbcef97367b241bed417522fa2c2a, type: 2}
+  - {fileID: 11400000, guid: fab5fb14c61f3f44c8220afacc782264, type: 2}
+  - {fileID: 11400000, guid: 8e59c38d2c931354f9663ae4f5fcfecb, type: 2}
+  - {fileID: 11400000, guid: 0f2c4b101d4fc5c4abef49b35ab17cb6, type: 2}
+  - {fileID: 11400000, guid: 4292fd66f46209241b3f76c8d2a0081b, type: 2}
+  - {fileID: 11400000, guid: 5a07184967fb16344ade15a8791cdb9f, type: 2}
+  - {fileID: 11400000, guid: 32a24a4c38f7bf045b52ab5f276cf7b2, type: 2}
+  - {fileID: 11400000, guid: 843ad7084c6707646a1d4b8ca3d532b7, type: 2}
+  - {fileID: 11400000, guid: c22e66fc844a84841b25861779006785, type: 2}
+  - {fileID: 11400000, guid: 7b32ea75c30b3b04084dbbca648f253c, type: 2}
+  - {fileID: 11400000, guid: e9e1f1ace98856941ad91cd78ef2635a, type: 2}
+  - {fileID: 11400000, guid: 748bc983a275f5749951019af0e0da08, type: 2}
+  - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
+  - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
+  - {fileID: 11400000, guid: 5da1982ea673dfd45a263e38164da8e8, type: 2}
+  - {fileID: 11400000, guid: ab869e207359efe44b81b3eb0cb3a21d, type: 2}
   cashName: Cash
   goldName: Gold
 --- !u!4 &20471954
@@ -1351,7 +1373,7 @@ GameObject:
   - component: {fileID: 272624162}
   - component: {fileID: 272624161}
   m_Layer: 5
-  m_Name: SpinnerBGDark
+  m_Name: SpinnerComponent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2281,7 +2303,7 @@ GameObject:
   - component: {fileID: 508916677}
   - component: {fileID: 508916678}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SpinnerHorizontalLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7458,8 +7480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc480df508132c4b9d2b302e9fd3939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageGameObject: {fileID: 257524391}
-  TextGameObject: {fileID: 1342711096}
+  imageGameObject: {fileID: 0}
+  colorComponent: []
+  textGameObject: {fileID: 0}
 --- !u!114 &1418553560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8360,7 +8383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU WIN!
+  m_text: You Won Big Chest!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8387,8 +8410,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9836,7 +9859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1945155821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9885,8 +9908,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc480df508132c4b9d2b302e9fd3939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImageGameObject: {fileID: 521479727}
-  TextGameObject: {fileID: 443226867}
+  imageGameObject: {fileID: 521479727}
+  colorComponent:
+  - {fileID: 1343301104}
+  - {fileID: 1313868938}
+  textGameObject: {fileID: 443226867}
 --- !u!1 &1952799604
 GameObject:
   m_ObjectHideFlags: 0

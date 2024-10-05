@@ -32,7 +32,7 @@ namespace Containers
             // Copy the Obtainable fields (inherited fields)
             chestClone.itemName = this.itemName;
             chestClone.image = this.image;
-            chestClone.color = this.color;
+            chestClone.colorType = this.colorType;
             chestClone.rarity = this.rarity;
             chestClone.explanation = this.explanation;
             chestClone.amount = newAmount; // Set new amount

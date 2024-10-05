@@ -14,7 +14,7 @@ namespace StandaloneItems
         [SerializeField]
         protected int amount;
         [SerializeField]
-        protected Color color;
+        protected Color colorType;
         [SerializeField]
         protected string rarity;
         [SerializeField]
@@ -25,7 +25,7 @@ namespace StandaloneItems
             Obtainable clone = ScriptableObject.CreateInstance<Obtainable>();
             clone.itemName = original.itemName;
             clone.image = original.image;
-            clone.color = original.color;
+            clone.colorType = original.colorType;
             clone.rarity = original.rarity;
             clone.explanation = original.explanation;
             clone.amount = newAmount; // Update the amount here
@@ -49,7 +49,7 @@ namespace StandaloneItems
 
         public Color GetColor()
         {
-            return color;
+            return colorType;
         }
         public string GetRarity()
         {

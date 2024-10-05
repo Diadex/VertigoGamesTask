@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   containerType: Bronze
   obtainableItems:
-  - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
   - {fileID: 11400000, guid: b979120eadaf95b468db33937b4900c9, type: 2}
-  - {fileID: 11400000, guid: b4b4ed18e6db3534a9d3f854c8a182e3, type: 2}
-  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: f08c0e98fa2e05448a316f6249caefac, type: 2}
+  - {fileID: 11400000, guid: 8b869ae1e07876e419661b58d9919bed, type: 2}
+  - {fileID: 11400000, guid: 5e1c2d624110b3b4f8052608b103f1d3, type: 2}
+  - {fileID: 11400000, guid: e4e53b7ccbb12d9458ad9b4d204d3176, type: 2}
   - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
-  - {fileID: 11400000, guid: c6311e61fedc0844080725dbea0b4aee, type: 2}
-  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: b4b4ed18e6db3534a9d3f854c8a182e3, type: 2}
+  - {fileID: 11400000, guid: c0e05b1dbb336b4429ca3173d3b51fe1, type: 2}
+  - {fileID: 11400000, guid: ee888c7c61de2b8488ed7bf35ab44747, type: 2}
   obtainableItemsCoefficients:
   - 1
   - 1

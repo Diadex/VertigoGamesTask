@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4c5776b39e1484698570988e2f977c, type: 3}
   m_Name: ChestStandart
   m_EditorClassIdentifier: 
-  itemName: ChestStandart
+  itemName: Standart Chest
   image: {fileID: 21300000, guid: f4e67addaa68ffb45bbfbb980abab3a3, type: 3}
   amount: 1
-  color: {r: 1, g: 0.8505519, b: 0.2971698, a: 1}
+  colorType: {r: 0.8301887, g: 0.7571068, b: 0.56781775, a: 1}
   rarity: 
   explanation: 
   containerType: standart
