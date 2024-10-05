@@ -280,7 +280,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
   - {fileID: 11400000, guid: 5e12fb7ca506e384585a8ee19ff7c7ad, type: 2}
   - {fileID: 11400000, guid: 5da1982ea673dfd45a263e38164da8e8, type: 2}
-  - {fileID: 11400000, guid: ab869e207359efe44b81b3eb0cb3a21d, type: 2}
+  - {fileID: 11400000, guid: 0ff34c3481e2fd542b11a609cf06fcb5, type: 2}
+  - {fileID: 11400000, guid: e72eea5efd2814f42b60c8d8f1857aeb, type: 2}
+  - {fileID: 11400000, guid: e89386e98096f594b95bcd539269fa7b, type: 2}
+  - {fileID: 11400000, guid: f3841605edc351e45813c2047c172dd4, type: 2}
+  - {fileID: 11400000, guid: e4e53b7ccbb12d9458ad9b4d204d3176, type: 2}
+  - {fileID: 11400000, guid: ee888c7c61de2b8488ed7bf35ab44747, type: 2}
+  - {fileID: 11400000, guid: f0a97e4caf9bd6e429e058c918f17da2, type: 2}
   cashName: Cash
   goldName: Gold
 --- !u!4 &20471954
