@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6580035516610021063}
   - component: {fileID: 5971424127480343140}
   m_Layer: 5
-  m_Name: SlotImage
+  m_Name: slotSize_slotImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   imageGameObject: {fileID: 4844475569350851414}
   colorComponent: []
   textGameObject: {fileID: 9042768842746111884}
+  colorMixAmount: []
 --- !u!1 &8659166276677457416
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6218962310870047188}
   m_Layer: 5
-  m_Name: SlotSize
+  m_Name: slotSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +177,7 @@ GameObject:
   - component: {fileID: 6242422970099642753}
   - component: {fileID: 326769507626135998}
   m_Layer: 5
-  m_Name: AmountText
+  m_Name: amountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

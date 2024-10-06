@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 5763029976634474154}
   - component: {fileID: 5841942559946980312}
   m_Layer: 5
-  m_Name: ItemFrame
+  m_Name: itemFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 5464625703843225877}
   - component: {fileID: 2202404144787610058}
   m_Layer: 5
-  m_Name: SlotImage
+  m_Name: item_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7274233824630590403}
   m_Layer: 5
-  m_Name: ObtainedItemUI_Image
+  m_Name: item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 5995063391953393876}
   - component: {fileID: 2359241020089409032}
   m_Layer: 5
-  m_Name: AmountText
+  m_Name: amountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
