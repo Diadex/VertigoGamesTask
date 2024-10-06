@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Tier3 Shotgun
   image: {fileID: 21300000, guid: de4e89a4edd97284099ecb5cc02eea87, type: 3}
   amount: 1
-  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
+  colorType: {r: 1, g: 0.9585221, b: 0, a: 1}
   rarity: 
   explanation: 

@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Baseball Cap Easter
   image: {fileID: 21300000, guid: 586a63eba21c0e349b97bca1431ab01c, type: 3}
   amount: 1
-  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
+  colorType: {r: 1, g: 0.95276475, b: 0, a: 1}
   rarity: 
   explanation: 

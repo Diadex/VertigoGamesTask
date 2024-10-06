@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Knife Bayonet Easter
   image: {fileID: 21300000, guid: 0b4300bd33d81b842bd3238dba29654a, type: 3}
   amount: 1
-  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
+  colorType: {r: 1, g: 0.95276475, b: 0, a: 1}
   rarity: 
   explanation: 

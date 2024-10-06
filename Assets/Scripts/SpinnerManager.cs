@@ -213,10 +213,7 @@ public class SpinnerManager : MonoBehaviour
                 {
                     if (wonResultButtonHandler.GetFlag())
                     {
-                        Debug.Log("b");
                         wonResultButtonHandler.SetFlag(false);
-                        // update item UI.
-                        Debug.Log("Got item " + openedChestContents[0]);
                         spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
                         // remove from the openedChestContents
                         openedChestContents.RemoveAt(0);
@@ -227,7 +224,6 @@ public class SpinnerManager : MonoBehaviour
                 {
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
-                        Debug.Log("c");
                         spinnerResultManager.HideWonResultUI();
                         wonResultButtonHandler.SetFlag(false);
                         openedChestContents = chestOpenManager.OpenChest();
@@ -236,7 +232,6 @@ public class SpinnerManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("d");
                         obtainedItemsManager.MoveTemporaryToPermanentStorage();
                         chestOpenButton.ButtonSetActive(false);
                         chestOpenUIManager.OpenChestUIActive(false);

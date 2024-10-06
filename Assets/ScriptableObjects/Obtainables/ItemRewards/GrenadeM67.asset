@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Grenade M67
   image: {fileID: 21300000, guid: 9508b7450f6c0ec4b90d72bf0bdc0a45, type: 3}
   amount: 1
-  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
+  colorType: {r: 0.69658995, g: 1, b: 0.4198113, a: 1}
   rarity: 
   explanation: 

@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Tier2 Melee
   image: {fileID: 21300000, guid: 4aa691745b95d56419a798c854cca2e0, type: 3}
   amount: 1
-  colorType: {r: 0.6536579, g: 0.5235849, b: 1, a: 1}
+  colorType: {r: 0.502573, g: 0.3160377, b: 1, a: 1}
   rarity: 
   explanation: 
