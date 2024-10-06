@@ -3014,6 +3014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 523841452}
   - component: {fileID: 523841453}
+  - component: {fileID: 523841454}
   m_Layer: 5
   m_Name: ObtainedItemsListUI
   m_TagString: Untagged
@@ -3062,6 +3063,27 @@ MonoBehaviour:
   prefabGrouperUITemp: {fileID: 61541201}
   singleRowHeight: 150
   columnCount: 6
+--- !u!95 &523841454
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523841451}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16fa9d408d92bb24eb96813e8e0d01bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &528229073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3257,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1334078900}
   - {fileID: 1275451825}
@@ -4950,6 +4972,7 @@ GameObject:
   - component: {fileID: 881695341}
   - component: {fileID: 881695342}
   - component: {fileID: 881695343}
+  - component: {fileID: 881695344}
   m_Layer: 5
   m_Name: ChestDisplayHolder
   m_TagString: Untagged
@@ -5017,6 +5040,27 @@ MonoBehaviour:
   chestOpenUI: {fileID: 881695340}
   chestImageDisplay: {fileID: 881695342}
   chestNameDisplay: {fileID: 1005833703}
+--- !u!95 &881695344
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881695340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06aaddf59f79bcd4294497eea500c9eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &907342698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,7 +5164,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 523841452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8303,7 +8347,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1418553558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8862,7 +8906,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1358141028}
   - {fileID: 1090647782}
@@ -9163,7 +9207,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 881695341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16143,7 +16187,7 @@ RectTransform:
   m_GameObject: {fileID: 1802151484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0699936, y: 1.0699936, z: 1.0699936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2105532349}
@@ -16739,7 +16783,7 @@ GameObject:
   - component: {fileID: 1945155823}
   - component: {fileID: 1945155824}
   m_Layer: 5
-  m_Name: ChestResultHolder
+  m_Name: ObtainedItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
