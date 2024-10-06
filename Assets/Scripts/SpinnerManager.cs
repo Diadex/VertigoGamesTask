@@ -198,7 +198,6 @@ public class SpinnerManager : MonoBehaviour
             case SpinnerState.ChestsOpening:
                 if (chestOpenButton.GetFlag())
                 {
-                    Debug.Log("a");
                     chestOpenButton.SetFlag(false);
                     chestOpenButton.ButtonSetActive(false);
                     wonResultButtonHandler.SetFlag(true);
@@ -212,7 +211,6 @@ public class SpinnerManager : MonoBehaviour
                 {
                     if (openedChestContents.Count > 0)
                     {
-                        Debug.Log("Showing "+ openedChestContents[0].GetName() + " " + openedChestContents[0].GetAmount() + " times");
                         wonResultButtonHandler.SetFlag(false);
                         spinnerResultManager.RestartAnimation();
                         spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
