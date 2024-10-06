@@ -5,42 +5,53 @@ using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour
 {
-    [SerializeField] // The UI button RectTransform
-    private RectTransform buttonRectTransform;
-    [SerializeField] // The active state button GameObject
-    private GameObject buttonActiveGameObj;
-    [SerializeField] // The disabled button GameObject
+    [SerializeField] // The active state button
+    private Button buttonActive;
+    [SerializeField] // The disabled button GameObject (this is an optional non-clickable image)
     private GameObject buttonDisabledGameObj;
-    [SerializeField] // The camera used in Screen Space - Camera mode
-    private Camera uiCamera;
 
     // flag true when the button is pressed.
     private bool flag;
     private bool isActive = true;
 
-    void Update()
+    private void OnValidate()
+    {
+        // Automatically assign the Button component if it's not set
+        if (buttonActive == null)
+        {
+            buttonActive = GetComponentInChildren<Button>(); // Finds Button on child if missing
+        }
+    }
+
+    private void Update()
     {
         if (isActive && Input.GetMouseButtonDown(0))
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(buttonRectTransform, Input.mousePosition, uiCamera))
+            // check if mouse is over the button's border as we clicked
+            RectTransform buttonRect = buttonActive.GetComponent<RectTransform>();
+            if (RectTransformUtility.RectangleContainsScreenPoint(buttonRect, Input.mousePosition, null))
             {
                 SetFlag(true);
-                Debug.Log("Custom UI element clicked");
             }
         }
     }
 
     public void ButtonSetActive(bool isActiveVar)
     {
-        buttonActiveGameObj.SetActive(isActiveVar);
+        if (buttonActive != null)
+        {
+            buttonActive.gameObject.SetActive(isActiveVar);
+        }
+
         if (buttonDisabledGameObj != null)
         {
             buttonDisabledGameObj.SetActive(!isActiveVar);
         }
+
         isActive = isActiveVar;
     }
 
-    // get and set for flag
+    // Get and set for flag
     public bool GetFlag()
     {
         return flag;
