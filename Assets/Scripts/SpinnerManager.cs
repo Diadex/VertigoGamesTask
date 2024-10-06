@@ -209,10 +209,12 @@ public class SpinnerManager : MonoBehaviour
 
                 break;
             case SpinnerState.ChestOpen:
-                if (openedChestContents.Count > 0)
+
+                if (wonResultButtonHandler.GetFlag())
                 {
-                    if (wonResultButtonHandler.GetFlag())
+                    if (openedChestContents.Count > 0)
                     {
+                        Debug.Log("Showing "+ openedChestContents[0].GetName() + " " + openedChestContents[0].GetAmount() + " times");
                         wonResultButtonHandler.SetFlag(false);
                         spinnerResultManager.RestartAnimation();
                         spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
@@ -220,25 +222,24 @@ public class SpinnerManager : MonoBehaviour
                         openedChestContents.RemoveAt(0);
                         currentState = SpinnerState.ChestOpen;
                     }
-                }
-                else
-                {
-                    if (chestOpenManager.GetThereIsChestInTemp())
-                    {
-                        spinnerResultManager.HideWonResultUI();
-                        wonResultButtonHandler.SetFlag(false);
-                        openedChestContents = chestOpenManager.OpenChest();
-                        chestOpenButton.ButtonSetActive(true);
-                        currentState = SpinnerState.ChestsOpening;
-                    }
                     else
                     {
-                        obtainedItemsManager.MoveTemporaryToPermanentStorage();
-                        chestOpenButton.ButtonSetActive(false);
-                        chestOpenUIManager.OpenChestUIActive(false);
-                        spinnerResultManager.HideWonResultUI();
-                        wonResultButtonHandler.SetFlag(false);
-                        currentState = SpinnerState.SetRoundToBeginning;
+                        if (chestOpenManager.GetThereIsChestInTemp())
+                        {
+                            spinnerResultManager.HideWonResultUI();
+                            wonResultButtonHandler.SetFlag(false);
+                            openedChestContents = chestOpenManager.OpenChest();
+                            chestOpenButton.ButtonSetActive(true);
+                            currentState = SpinnerState.ChestsOpening;
+                        }
+                        else {
+                            obtainedItemsManager.MoveTemporaryToPermanentStorage();
+                            chestOpenButton.ButtonSetActive(false);
+                            chestOpenUIManager.OpenChestUIActive(false);
+                            spinnerResultManager.HideWonResultUI();
+                            wonResultButtonHandler.SetFlag(false);
+                            currentState = SpinnerState.SetRoundToBeginning;
+                        }
                     }
                 }
                 break;
