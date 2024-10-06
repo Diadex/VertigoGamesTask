@@ -39,6 +39,7 @@ namespace Containers
 
             // Copy the chest-specific fields
             chestClone.containerType = this.containerType;
+            chestClone.numberOfItemsInChest = this.numberOfItemsInChest;
             chestClone.obtainableItems = new List<Obtainable>(this.obtainableItems); // Shallow copy of items list
             chestClone.obtainableItemsCoefficients = new List<float>(this.obtainableItemsCoefficients); // Shallow copy of coefficients list
 
@@ -77,6 +78,9 @@ namespace Containers
             {
                 coefficientTotal += obtainableItemsCoefficients[a];
             }
+            Debug.Log("coefficient total is " + coefficientTotal);
+            Debug.Log("noOfItemsUnlockable is " + noOfItemsUnlockable);
+            Debug.Log("numberOfItemsInChest is " + numberOfItemsInChest);
             for (int i = 0; i < numberOfItemsInChest; i ++)
             {
                 float currentTotalCoefficients = 0;
@@ -92,8 +96,10 @@ namespace Containers
                         a = noOfItemsUnlockable;
                     }
                 }
+                Debug.Log("Selected item " + obtainableItems[currentIndex].GetName() + " " + obtainableItems[currentIndex].GetAmount() + " times.");
                 unlockedItems.Add(obtainableItems[currentIndex]);
             }
+            Debug.Log("Chest obtained items list length: " + unlockedItems.Count);
             return unlockedItems;
         }
 

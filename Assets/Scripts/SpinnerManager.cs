@@ -104,7 +104,7 @@ public class SpinnerManager : MonoBehaviour
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
                         openedChestContents = chestOpenManager.OpenChest();
-                        Debug.Log("openedChestContents count is "+ openedChestContents);
+                        Debug.Log("openedChestContents count is "+ openedChestContents.Count);
                         Debug.Log("openedChestContents is " + openedChestContents.ToString());
                         chestOpenUIManager.OpenChestUIActive(true);
                         chestOpenButton.ButtonSetActive(true);
@@ -200,7 +200,7 @@ public class SpinnerManager : MonoBehaviour
             case SpinnerState.ChestsOpening:
                 if (chestOpenButton.GetFlag())
                 {
-                    Debug.Log("b");
+                    Debug.Log("a");
                     chestOpenButton.SetFlag(false);
                     chestOpenButton.ButtonSetActive(false);
                     wonResultButtonHandler.SetFlag(true);
@@ -211,10 +211,9 @@ public class SpinnerManager : MonoBehaviour
             case SpinnerState.ChestOpen:
                 if (openedChestContents.Count > 0)
                 {
-                    Debug.Log("d");
                     if (wonResultButtonHandler.GetFlag())
                     {
-                        Debug.Log("e");
+                        Debug.Log("b");
                         wonResultButtonHandler.SetFlag(false);
                         // update item UI.
                         Debug.Log("Got item " + openedChestContents[0]);
@@ -228,7 +227,7 @@ public class SpinnerManager : MonoBehaviour
                 {
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
-                        Debug.Log("f");
+                        Debug.Log("c");
                         spinnerResultManager.HideWonResultUI();
                         wonResultButtonHandler.SetFlag(false);
                         openedChestContents = chestOpenManager.OpenChest();
@@ -237,10 +236,12 @@ public class SpinnerManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("c");
+                        Debug.Log("d");
                         obtainedItemsManager.MoveTemporaryToPermanentStorage();
                         chestOpenButton.ButtonSetActive(false);
                         chestOpenUIManager.OpenChestUIActive(false);
+                        spinnerResultManager.HideWonResultUI();
+                        wonResultButtonHandler.SetFlag(false);
                         currentState = SpinnerState.SetRoundToBeginning;
                     }
                 }

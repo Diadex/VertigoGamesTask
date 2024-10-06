@@ -2993,10 +2993,10 @@ RectTransform:
   - {fileID: 1164245741}
   - {fileID: 1807725625}
   - {fileID: 1132202000}
-  - {fileID: 1945155822}
   - {fileID: 1418553558}
   - {fileID: 523841452}
   - {fileID: 881695341}
+  - {fileID: 1945155822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4565,6 +4565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obtainedItems: {fileID: 20471953}
+  chestOpenUIManager: {fileID: 881695343}
 --- !u!4 &815480082
 Transform:
   m_ObjectHideFlags: 0
@@ -4955,7 +4956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &881695341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14699,6 +14700,7 @@ MonoBehaviour:
   obtainedItemsManager: {fileID: 20471953}
   obtainedItemsUIManager: {fileID: 523841453}
   chestOpenManager: {fileID: 815480081}
+  chestOpenUIManager: {fileID: 881695343}
   spinnerButtonHandler: {fileID: 624760653}
   leaveButtonHandler: {fileID: 2104761170}
   explodeResultGiveUpButtonHandler: {fileID: 1705003432}
@@ -14706,6 +14708,7 @@ MonoBehaviour:
   wonResultButtonHandler: {fileID: 1945155821}
   obtainedItemsUIDisplayButton: {fileID: 1676271319}
   obtainedItemsUIDisplayExitButton: {fileID: 565153530}
+  chestOpenButton: {fileID: 1986879333}
 --- !u!4 &1534319992
 Transform:
   m_ObjectHideFlags: 0
@@ -16713,7 +16716,7 @@ GameObject:
   - component: {fileID: 1945155821}
   - component: {fileID: 1945155823}
   m_Layer: 5
-  m_Name: ResultDisplayHolder
+  m_Name: ChestResultHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
