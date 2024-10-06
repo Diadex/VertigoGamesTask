@@ -20,6 +20,7 @@ namespace StandaloneItems
         [SerializeField]
         protected string explanation;
 
+        // in order to change the amount
         public static Obtainable Clone(Obtainable original, int newAmount)
         {
             Obtainable clone = ScriptableObject.CreateInstance<Obtainable>();
@@ -28,7 +29,7 @@ namespace StandaloneItems
             clone.colorType = original.colorType;
             clone.rarity = original.rarity;
             clone.explanation = original.explanation;
-            clone.amount = newAmount; // Update the amount here
+            clone.amount = newAmount;
             return clone;
         }
 

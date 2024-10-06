@@ -154,6 +154,18 @@ public class ObtainedItemsManager : MonoBehaviour
         }
     }
 
+    public void RemoveFromList( StorageType storage, Obtainable item)
+    {
+        if (storage == StorageType.PermaStorage)
+        {
+            permaStorage.Remove(item);
+        }
+        else
+        {
+            temporaryStorage.Remove(item);
+        }
+    }
+
     private void SavePermanentStorage()
     {
         List<string> savedItems = new List<string>();

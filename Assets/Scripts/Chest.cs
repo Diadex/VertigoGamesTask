@@ -62,7 +62,40 @@ namespace Containers
         }
 
 
-
+        public List<Obtainable> GetItemsUnlockChest()
+        {
+            // do this numberOfItemsInChest times and add all picked to the result list
+            //      add up all the coefficients
+            //      pick random number between 0 (inclusive) to the total of the coefficients (exclusive)
+            //      go over each coefficient and find the random number's coefficient's index value
+            //      add the obtainable at index value to the list
+            // return the list of obtainables
+            List<Obtainable> unlockedItems = new List<Obtainable>();
+            int noOfItemsUnlockable = obtainableItems.Count;
+            float coefficientTotal = 0;
+            for (int a = 0; a < noOfItemsUnlockable; a++)
+            {
+                coefficientTotal += obtainableItemsCoefficients[a];
+            }
+            for (int i = 0; i < numberOfItemsInChest; i ++)
+            {
+                float currentTotalCoefficients = 0;
+                int currentIndex = 0;
+                float randomCoefficient = Random.Range(0, coefficientTotal-1);
+                for (int a = 0; a < noOfItemsUnlockable; a++)
+                {
+                    currentIndex = a;
+                    currentTotalCoefficients += obtainableItemsCoefficients[a];
+                    if (currentTotalCoefficients > randomCoefficient)
+                    {
+                        currentIndex = a;
+                        a = noOfItemsUnlockable;
+                    }
+                }
+                unlockedItems.Add(obtainableItems[currentIndex]);
+            }
+            return unlockedItems;
+        }
 
 
 
