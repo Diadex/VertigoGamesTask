@@ -104,8 +104,6 @@ public class SpinnerManager : MonoBehaviour
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
                         openedChestContents = chestOpenManager.OpenChest();
-                        Debug.Log("openedChestContents count is "+ openedChestContents.Count);
-                        Debug.Log("openedChestContents is " + openedChestContents.ToString());
                         chestOpenUIManager.OpenChestUIActive(true);
                         chestOpenButton.ButtonSetActive(true);
                         currentState = SpinnerState.ChestsOpening;

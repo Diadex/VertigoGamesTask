@@ -56,7 +56,6 @@ namespace Containers
 
         public Color GetSpinnerZoneColor()
         {
-            Debug.Log("SpinnerColor is " + spinnerZoneColor.ToString());
             return spinnerZoneColor;
         }
 

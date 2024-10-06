@@ -41,7 +41,7 @@ public class SpinnerWheelUIManager : MonoBehaviour
         string spinnertype;
         if (spinnerUINames.Length < 3)
         {
-            Debug.Log("There are less types of spinners than the types of variations. SpinnerWheelUIManager");
+            Debug.Log("Error: There are less types of spinners than the types of variations. SpinnerWheelUIManager");
             return "Error";
         }
         // gold
