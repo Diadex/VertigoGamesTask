@@ -65,7 +65,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
   m_PositionCurves: []
   m_ScaleCurves:
   - curve:
@@ -119,7 +119,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -147,7 +147,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -234,7 +234,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -291,7 +291,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -348,7 +348,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -405,7 +405,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -462,7 +462,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -519,7 +519,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -576,7 +576,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 16
@@ -589,7 +589,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -601,7 +601,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -613,7 +613,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0

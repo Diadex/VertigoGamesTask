@@ -49,7 +49,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ABombExplodedText
+    path: ui_explode_text_1
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -83,7 +83,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: CanReviveText
+    path: ui_explode_text_2
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -117,7 +117,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -151,7 +151,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -194,7 +194,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -219,7 +219,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ZoneScreen
+    path: ui_explode_background
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -287,7 +287,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
   m_FloatCurves:
   - serializedVersion: 2
     curve:
@@ -324,7 +324,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -363,7 +363,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -411,7 +411,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -450,7 +450,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -489,7 +489,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -537,7 +537,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -594,7 +594,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -651,7 +651,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.y
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -699,7 +699,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_fontSize
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 114
     script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
     flags: 0
@@ -747,7 +747,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_fontSizeBase
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 114
     script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
     flags: 0
@@ -795,7 +795,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -834,7 +834,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -873,7 +873,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -881,6 +881,15 @@ AnimationClip:
     curve:
       serializedVersion: 2
       m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -295
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.9166667
         value: -295
@@ -912,7 +921,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/SlotImage
+    path: ui_explode_frame/ui_explode_frame_image
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -951,7 +960,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -964,7 +973,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2710854804
+      path: 3452549746
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -973,7 +982,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1463215109
+      path: 1421929416
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -982,7 +991,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4219589305
+      path: 1427218571
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -991,7 +1000,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3238788954
+      path: 429175884
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -1000,7 +1009,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1377148861
+      path: 4084290303
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -1009,7 +1018,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3148555500
+      path: 1743353569
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -1018,7 +1027,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2155209737
+      path: 2294534771
       attribute: 3
       script: {fileID: 0}
       typeID: 4
@@ -1027,7 +1036,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2710854804
+      path: 3452549746
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1036,7 +1045,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1463215109
+      path: 1421929416
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1045,7 +1054,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2155209737
+      path: 2294534771
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1054,7 +1063,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1377148861
+      path: 4084290303
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1063,7 +1072,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 4219589305
+      path: 1427218571
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1072,7 +1081,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3238788954
+      path: 429175884
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -1081,7 +1090,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2155209737
+      path: 2294534771
       attribute: 1967290853
       script: {fileID: 0}
       typeID: 224
@@ -1090,7 +1099,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2155209737
+      path: 2294534771
       attribute: 38095219
       script: {fileID: 0}
       typeID: 224
@@ -1099,7 +1108,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2024700628
+      path: 1344669056
       attribute: 1226342476
       script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
       typeID: 114
@@ -1108,7 +1117,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2024700628
+      path: 1344669056
       attribute: 3714763831
       script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
       typeID: 114
@@ -1117,7 +1126,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2024700628
+      path: 1344669056
       attribute: 1967290853
       script: {fileID: 0}
       typeID: 224
@@ -1126,7 +1135,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2710854804
+      path: 3452549746
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -1135,7 +1144,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1463215109
+      path: 1421929416
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -1144,7 +1153,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1237178842
+      path: 770604494
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -1153,7 +1162,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2024700628
+      path: 1344669056
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -1227,7 +1236,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1266,7 +1275,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1314,7 +1323,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1353,7 +1362,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1392,7 +1401,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1440,7 +1449,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -1497,7 +1506,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1554,7 +1563,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.y
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1602,7 +1611,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_fontSize
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 114
     script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
     flags: 0
@@ -1650,7 +1659,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_fontSizeBase
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 114
     script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
     flags: 0
@@ -1698,7 +1707,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_SizeDelta.x
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1737,7 +1746,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1776,7 +1785,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1815,7 +1824,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1854,7 +1863,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ABombExplodedText
+    path: ui_explode_text_1
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1893,7 +1902,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1932,7 +1941,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -1971,7 +1980,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2010,7 +2019,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: CanReviveText
+    path: ui_explode_text_2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2049,7 +2058,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2088,7 +2097,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2127,7 +2136,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ExplodeDisplay (1)/ReviveButton
+    path: ui_explode_frame/ui_explode_frame_buttonRevive
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2166,7 +2175,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2205,7 +2214,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2244,7 +2253,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ExplodeDisplay (1)/GiveUpButton
+    path: ui_explode_frame/ui_explode_frame_buttonGiveUp
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2292,7 +2301,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2340,7 +2349,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2388,7 +2397,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ExplodeDisplay (1)/SparkRaysOfLight
+    path: ui_explode_frame/ui_explode_frame_raysofLight
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2396,6 +2405,15 @@ AnimationClip:
     curve:
       serializedVersion: 2
       m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -295
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.9166667
         value: -295
@@ -2427,7 +2445,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/SlotImage
+    path: ui_explode_frame/ui_explode_frame_image
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2466,7 +2484,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: ExplodeDisplay (1)/DefaultText
+    path: ui_explode_frame/ui_explode_frame_text
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2496,7 +2514,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ZoneScreen
+    path: ui_explode_background
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2526,7 +2544,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ZoneScreen
+    path: ui_explode_background
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2556,7 +2574,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ZoneScreen
+    path: ui_explode_background
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2676,7 +2694,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.x
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2733,7 +2751,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.y
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -2790,7 +2808,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalScale.z
-    path: ExplodeDisplay (1)
+    path: ui_explode_frame
     classID: 224
     script: {fileID: 0}
     flags: 0

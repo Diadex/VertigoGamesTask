@@ -1224,7 +1224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 190180030}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_display
+  m_Name: ui_reward_frame_display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1545,14 +1545,13 @@ RectTransform:
   m_Children:
   - {fileID: 1164245741}
   - {fileID: 1807725625}
-  - {fileID: 1132202000}
   m_Father: {fileID: 521898168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.00018310547}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &255280453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2252,7 @@ GameObject:
   - component: {fileID: 443226870}
   - component: {fileID: 443226869}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_display_text_1
+  m_Name: ui_reward_frame_display_text_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2796,7 +2795,7 @@ GameObject:
   - component: {fileID: 521479730}
   - component: {fileID: 521479729}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_display_image
+  m_Name: ui_reward_frame_display_image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2956,6 +2955,7 @@ RectTransform:
   - {fileID: 2101240204}
   - {fileID: 272624160}
   - {fileID: 1676271320}
+  - {fileID: 1132202000}
   - {fileID: 253096484}
   - {fileID: 1418553558}
   - {fileID: 523841452}
@@ -5693,7 +5693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1003371522}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_display_item
+  m_Name: ui_reward_frame_display_item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6657,11 +6657,11 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1329026434}
-  m_Father: {fileID: 253096484}
+  m_Father: {fileID: 521898168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -392.00006, y: 603.45953}
+  m_AnchoredPosition: {x: 100, y: -50}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1132202001
@@ -6737,7 +6737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 373.00003, y: 603.45953}
+  m_AnchoredPosition: {x: -100, y: -50}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1164245742
@@ -7344,7 +7344,7 @@ GameObject:
   - component: {fileID: 1313868941}
   - component: {fileID: 1313868940}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_outline
+  m_Name: ui_reward_frame_outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8084,7 +8084,7 @@ GameObject:
   - component: {fileID: 1343301107}
   - component: {fileID: 1343301106}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_sparkRaysOfLight
+  m_Name: ui_reward_frame_sparkRaysOfLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14641,7 +14641,7 @@ GameObject:
   - component: {fileID: 1614414402}
   - component: {fileID: 1614414401}
   m_Layer: 5
-  m_Name: ui_reward_frame_background_display_text_2
+  m_Name: ui_reward_frame_display_text_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15161,11 +15161,11 @@ RectTransform:
   - {fileID: 635432131}
   m_Father: {fileID: 521898168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -460}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &1700219709
 GameObject:
   m_ObjectHideFlags: 0
@@ -16011,7 +16011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 143, y: 603.45953}
+  m_AnchoredPosition: {x: -358.00006, y: -50}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1807725626
