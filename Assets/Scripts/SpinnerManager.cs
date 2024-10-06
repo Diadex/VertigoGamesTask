@@ -71,8 +71,8 @@ public class SpinnerManager : MonoBehaviour
     private void Start()
     {
         spinnerWheels = spinnerWheelUIManager.GetSpinnerWheelUIReferences();
-        currentState = SpinnerState.SetRoundToBeginning;
         obtainedItemsUIManager.SetUIObtainedStorage();
+        currentState = SpinnerState.SetRoundToBeginning;
     }
 
     private void Update()
@@ -80,41 +80,53 @@ public class SpinnerManager : MonoBehaviour
         switch (currentState)
         {
             case SpinnerState.Initializing:
+                // Functiion
                 InitializeSpinner();
+                // State
                 currentState = SpinnerState.WaitingForButtonPress;
                 break;
-
             case SpinnerState.WaitingForButtonPress:
+                // UI
                 if (spinnerButtonHandler.GetFlag())
                 {
+                    // UI
                     spinnerButtonHandler.SetFlag(false);
                     spinnerButtonHandler.ButtonSetActive(false);
                     CheckEnableSafeZoneOptions(false);
-
+                    // Function
                     spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult, numberOfItems);
+                    // State
                     currentState = SpinnerState.Spinning;
-                }
+                }// UI
                 else if (leaveButtonHandler.GetFlag())
                 {
+                    // UI
                     leaveButtonHandler.SetFlag(false);
                     leaveButtonHandler.ButtonSetActive(false);
                     CheckEnableSafeZoneOptions(false);
-                    // save teh chests in temporary to the chestOpenManager
+                    // Function (save)
                     chestOpenManager.SaveChestsToOpenManager();
+                    // Function (chests)
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
-                        openedChestContents = chestOpenManager.OpenChest();
+                        // UI
                         chestOpenUIManager.OpenChestUIActive(true);
                         chestOpenButton.ButtonSetActive(true);
+                        // Function
+                        openedChestContents = chestOpenManager.OpenChest();
+                        // State
                         currentState = SpinnerState.ChestsOpening;
                     }
                     else
                     {
-                        obtainedItemsManager.MoveTemporaryToPermanentStorage();
+                        // UI
                         chestOpenButton.ButtonSetActive(false);
+                        // Function
+                        obtainedItemsManager.MoveTemporaryToPermanentStorage();
+                        // State
                         currentState = SpinnerState.SetRoundToBeginning;
                     }
-                }
+                }// UI
                 else if (obtainedItemsUIDisplayButton.GetFlag())
                 {
                     spinnerButtonHandler.ButtonSetActive(false);
@@ -124,143 +136,171 @@ public class SpinnerManager : MonoBehaviour
                     obtainedItemsUIManager.EnableUI(true);
                     currentState = SpinnerState.ObtainableItemsDisplayed;
                 }
-
+                // State
                 if (currentState != SpinnerState.WaitingForButtonPress)
                 {
+                    //UI
                     // display the obtainedItemsUIButton unless we are at this state
                     obtainedItemsUIDisplayButton.ButtonSetActive(false);
                 }
                 break;
-
             case SpinnerState.ObtainableItemsDisplayed:
+                // UI
                 if (obtainedItemsUIDisplayExitButton.GetFlag())
                 {
+                    // UI
                     spinnerButtonHandler.ButtonSetActive(true);
                     obtainedItemsUIDisplayExitButton.SetFlag(false);
                     obtainedItemsUIManager.EnableUI(false);
                     obtainedItemsUIDisplayButton.ButtonSetActive(true);
+                    // State
                     currentState = SpinnerState.WaitingForButtonPress;
                 }
                 break;
 
             case SpinnerState.Spinning:
+                // Function
                 if (!spinnerAnimator.CheckAnimation())
                 {
+                    // Function
                     obtainedItemsManager.AddItemToStorage(ObtainedItemsManager.StorageType.TempStorage, itemResult);
                     // check if we exploded or not and display the UI accordingly.
+                    // UI
                     if (spinnerResultManager.DisplaySpinnerResultUI(itemResult))
                     {
+                        // State
                         currentState = SpinnerState.Exploded;
                     }
                     else
                     {
+                        // State
                         currentState = SpinnerState.ResultDisplayed;
                     }
                 }
                 break;
-
             case SpinnerState.ResultDisplayed:
+                // UI
                 if (wonResultButtonHandler.GetFlag())
                 {
+                    // UI
                     spinnerResultManager.HideWonResultUI();
                     wonResultButtonHandler.SetFlag(false);
+                    // State
                     currentState = SpinnerState.Initializing;
                 }
                 break;
-
             case SpinnerState.Exploded:
+                // UI
                 if (explodeResultGiveUpButtonHandler.GetFlag())
                 {
+                    // UI
                     spinnerResultManager.HideExplodeResultUI();
                     explodeResultGiveUpButtonHandler.SetFlag(false);
-
+                    // Function (save)
                     obtainedItemsManager.ClearTempStorage();
+                    // State
                     currentState = SpinnerState.SetRoundToBeginning;
-                }
+                }// UI
                 else if (explodeResultReviveButtonHandler.GetFlag())
                 {
+                    // UI
                     explodeResultReviveButtonHandler.SetFlag(false);
+                    // Function
                     int reviveCostGold = spinnerResultManager.GetCostOnExplosion();
                     // spend gold, update the gold UI, then continue from the next round
                     if (obtainedItemsManager.SpendGold(reviveCostGold))
                     {
+                        // UI
                         uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
                         spinnerResultManager.HideExplodeResultUI();
+                        // State
                         currentState = SpinnerState.Initializing;
                     }
                 }
                 break;
             case SpinnerState.SetRoundToBeginning:
+                // Function
                 round = 0;
+                // UI
                 uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
+                // State
                 currentState = SpinnerState.Initializing;
                 break;
             case SpinnerState.ChestsOpening:
+                // UI
                 if (chestOpenButton.GetFlag())
                 {
+                    // UI
                     chestOpenButton.SetFlag(false);
                     chestOpenButton.ButtonSetActive(false);
                     wonResultButtonHandler.SetFlag(true);
+                    // State
                     currentState = SpinnerState.ChestOpen;
                 }
-
                 break;
             case SpinnerState.ChestOpen:
-
+                // UI
                 if (wonResultButtonHandler.GetFlag())
                 {
+                    // Function
                     if (openedChestContents.Count > 0)
                     {
+                        // UI
                         wonResultButtonHandler.SetFlag(false);
                         spinnerResultManager.RestartAnimation();
                         spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
-                        // remove from the openedChestContents
+                        // Function
                         openedChestContents.RemoveAt(0);
+                        // State
                         currentState = SpinnerState.ChestOpen;
                     }
                     else
                     {
+                        // Function
                         if (chestOpenManager.GetThereIsChestInTemp())
                         {
+                            // UI
                             spinnerResultManager.HideWonResultUI();
                             wonResultButtonHandler.SetFlag(false);
-                            openedChestContents = chestOpenManager.OpenChest();
                             chestOpenButton.ButtonSetActive(true);
+                            // Function
+                            openedChestContents = chestOpenManager.OpenChest();
+                            // State
                             currentState = SpinnerState.ChestsOpening;
                         }
                         else {
-                            obtainedItemsManager.MoveTemporaryToPermanentStorage();
+                            // UI
                             chestOpenButton.ButtonSetActive(false);
                             chestOpenUIManager.OpenChestUIActive(false);
                             spinnerResultManager.HideWonResultUI();
                             wonResultButtonHandler.SetFlag(false);
+                            // Function
+                            obtainedItemsManager.MoveTemporaryToPermanentStorage();
+                            // State
                             currentState = SpinnerState.SetRoundToBeginning;
                         }
                     }
                 }
                 break;
-
         }
     }
 
     private void InitializeSpinner()
     {
+        // Function
         round++;
-        uiDisplayInformationManager.SetRoundText(round);
         string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
-
         List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
         bool isSafeZone = spinnerContentManager.GetCurrentSpinnerIsLeavable();
-        CheckEnableSafeZoneOptions(isSafeZone);
-        spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
-
         numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
-        
+        // UI
+        uiDisplayInformationManager.SetRoundText(round);
+        CheckEnableSafeZoneOptions(isSafeZone);
+        spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
         spinnerPanelUIManager.SetSpinWriting(roundType, 
                             spinnerContentManager.GetObtainableRewardRateWriting(), spinnerContentManager.GetSpinnerZoneColor());
-
         spinnerButtonHandler.ButtonSetActive(true);
         leaveButtonHandler.ButtonSetActive(true);
         obtainedItemsUIDisplayButton.ButtonSetActive(true);

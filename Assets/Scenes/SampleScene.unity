@@ -5073,7 +5073,7 @@ MonoBehaviour:
   - 0.1
   - 0.005
   - 0.01
-  uiAtlas: {fileID: 0}
+  uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
 --- !u!114 &881695343
 MonoBehaviour:
   m_ObjectHideFlags: 0
