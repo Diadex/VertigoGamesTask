@@ -214,7 +214,7 @@ public class SpinnerManager : MonoBehaviour
                     if (wonResultButtonHandler.GetFlag())
                     {
                         wonResultButtonHandler.SetFlag(false);
-                        spinnerResultManager.HideWonResultUI();
+                        spinnerResultManager.RestartAnimation();
                         spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
                         // remove from the openedChestContents
                         openedChestContents.RemoveAt(0);

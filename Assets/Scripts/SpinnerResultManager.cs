@@ -17,6 +17,8 @@ public class SpinnerResultManager : MonoBehaviour
     private GameObject explodeResultGameObject;
     [SerializeField]
     private GameObject wonResultGameObject;
+    [SerializeField]
+    private Animator resultDisplayAnimator;
 
     [SerializeField]
     private int costOnExplosion = 10000;
@@ -68,6 +70,12 @@ public class SpinnerResultManager : MonoBehaviour
     public void HideWonResultUI()
     {
         wonResultGameObject.SetActive(false);
+    }
+
+    public void RestartAnimation()
+    {
+        resultDisplayAnimator.Rebind();
+
     }
 
 }

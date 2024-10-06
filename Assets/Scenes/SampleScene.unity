@@ -16159,6 +16159,7 @@ MonoBehaviour:
   explosionMoneyAmountText: {fileID: 1635546516}
   explodeResultGameObject: {fileID: 1418553557}
   wonResultGameObject: {fileID: 1945155820}
+  resultDisplayAnimator: {fileID: 1945155824}
   costOnExplosion: 25
 --- !u!1 &1802151484
 GameObject:
