@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4900423811691079250}
   - component: {fileID: 6580035516610021063}
   - component: {fileID: 5971424127480343140}
+  - component: {fileID: 2082202261632233623}
   m_Layer: 5
   m_Name: slotSize_slotImage
   m_TagString: Untagged
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2082202261632233623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844475569350851414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29a21b59b952a49974176d53a0ba48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
 --- !u!1 &6711976520900318819
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +143,7 @@ MonoBehaviour:
   colorComponent: []
   textGameObject: {fileID: 9042768842746111884}
   colorMixAmount: []
+  uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
 --- !u!1 &8659166276677457416
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using StandaloneItems;
+using UnityEngine.U2D;
 
 public class ItemDisplayUIManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ItemDisplayUIManager : MonoBehaviour
     private GameObject textGameObject; // Reference to the amount writing GameObject
     [SerializeField]
     private List<float> colorMixAmount;
+    [SerializeField]
+    private SpriteAtlas uiAtlas;
 
     private AmountDisplayFormatter formatter = new AmountDisplayFormatter();
 
@@ -25,7 +28,8 @@ public class ItemDisplayUIManager : MonoBehaviour
             Image imageComponent = imageGameObject.GetComponent<Image>();
             if (imageComponent != null)
             {
-                imageComponent.sprite = slotItem.GetImage(); // Assuming Obtainable has an 'image' property of type Sprite
+                string spriteName = slotItem.GetImage().name.Replace("(Clone)", "").Trim();
+                imageComponent.sprite = uiAtlas.GetSprite(spriteName); 
             }
         }
 

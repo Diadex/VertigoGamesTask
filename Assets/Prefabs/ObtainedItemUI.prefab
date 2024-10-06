@@ -57,6 +57,7 @@ MonoBehaviour:
   textGameObject: {fileID: 7225643866696348292}
   colorMixAmount:
   - 0.8
+  uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
 --- !u!1 &2748802650202494442
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +144,7 @@ GameObject:
   - component: {fileID: 9012543424060740300}
   - component: {fileID: 5464625703843225877}
   - component: {fileID: 2202404144787610058}
+  - component: {fileID: 3794786498675456299}
   m_Layer: 5
   m_Name: item_image
   m_TagString: Untagged
@@ -207,6 +209,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3794786498675456299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955161442939275946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29a21b59b952a49974176d53a0ba48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
 --- !u!1 &4151951335676861285
 GameObject:
   m_ObjectHideFlags: 0
