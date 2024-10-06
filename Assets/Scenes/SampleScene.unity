@@ -3886,7 +3886,7 @@ GameObject:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: observer_light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5491,7 +5491,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: observer_mainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8828,7 +8828,7 @@ GameObject:
   - component: {fileID: 1432503122}
   - component: {fileID: 1432503121}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: observer_scrollEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14775,7 +14775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620899824}
   m_Layer: 0
-  m_Name: Observer
+  m_Name: observer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
