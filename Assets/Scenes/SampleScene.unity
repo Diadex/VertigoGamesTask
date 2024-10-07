@@ -17285,7 +17285,7 @@ MonoBehaviour:
   spinSpeedUpDuration: 1
   spinNoSpeedLossDuration: 2
   spinSlowDownDuration: 6
-  rotationsSpeedUp: 2
+  rotationsSpeedUp: 3
   rotationsNoSpeedLoss: 5
   rotationsSlowDown: 4
   spinnerEdgeClosenessTreshold: 0.3
