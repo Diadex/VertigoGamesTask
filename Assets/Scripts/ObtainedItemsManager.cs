@@ -181,7 +181,7 @@ public class ObtainedItemsManager : MonoBehaviour
 
     public void ClearPermanentStorage()
     {
-        PlayerPrefs.SetString("PermanentStorage", "Gold:100");
+        PlayerPrefs.SetString("PermanentStorage", "Gold:100,Cash:1000");
         PlayerPrefs.Save();
     }
 
