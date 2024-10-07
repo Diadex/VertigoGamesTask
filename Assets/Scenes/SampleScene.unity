@@ -512,6 +512,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1534319992}
+  - {fileID: 225918493}
   m_Father: {fileID: 1938328421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &134266423
@@ -1494,6 +1495,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiAtlas: {fileID: 4343727234628468602, guid: a45932a9745ece145a2e5f80e96667c2, type: 2}
+--- !u!1 &225918492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225918493}
+  - component: {fileID: 225918494}
+  m_Layer: 0
+  m_Name: managers_master_spinnerUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225918493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225918492}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 77297796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225918494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225918492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dfc9c2b08728f4495d9a67ec00ab05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinnerContentManager: {fileID: 528229075}
+  spinnerSlotPlacer: {fileID: 2086151644}
+  spinnerWheelUIManager: {fileID: 862591746}
+  spinnerResultManager: {fileID: 1798115549}
+  uiDisplayInformationManager: {fileID: 245158956}
+  spinnerPanelUIManager: {fileID: 508916678}
+  obtainedItemsUIManager: {fileID: 523841453}
+  chestOpenUIManager: {fileID: 881695343}
+  spinnerButtonHandler: {fileID: 624760653}
+  leaveButtonHandler: {fileID: 2104761170}
+  explodeResultGiveUpButtonHandler: {fileID: 1705003432}
+  explodeResultReviveButtonHandler: {fileID: 255280457}
+  wonResultButtonHandler: {fileID: 1945155821}
+  obtainedItemsUIDisplayButton: {fileID: 1676271319}
+  obtainedItemsUIDisplayExitButton: {fileID: 565153530}
+  chestOpenButton: {fileID: 1986879333}
 --- !u!1 &245158954
 GameObject:
   m_ObjectHideFlags: 0
@@ -14924,25 +14985,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8289fb5aa7c9e448c2617c8814483d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinnerContentManager: {fileID: 528229075}
-  spinnerSlotPlacer: {fileID: 2086151644}
-  spinnerWheelUIManager: {fileID: 862591746}
   spinnerAnimator: {fileID: 1952799606}
   spinnerResultManager: {fileID: 1798115549}
-  uiDisplayInformationManager: {fileID: 245158956}
-  spinnerPanelUIManager: {fileID: 508916678}
   obtainedItemsManager: {fileID: 20471953}
-  obtainedItemsUIManager: {fileID: 523841453}
   chestOpenManager: {fileID: 815480081}
-  chestOpenUIManager: {fileID: 881695343}
-  spinnerButtonHandler: {fileID: 624760653}
-  leaveButtonHandler: {fileID: 2104761170}
-  explodeResultGiveUpButtonHandler: {fileID: 1705003432}
-  explodeResultReviveButtonHandler: {fileID: 255280457}
-  wonResultButtonHandler: {fileID: 1945155821}
-  obtainedItemsUIDisplayButton: {fileID: 1676271319}
-  obtainedItemsUIDisplayExitButton: {fileID: 565153530}
-  chestOpenButton: {fileID: 1986879333}
+  spinnerUIManager: {fileID: 225918494}
 --- !u!4 &1534319992
 Transform:
   m_ObjectHideFlags: 0

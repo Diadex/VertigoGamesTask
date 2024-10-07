@@ -7,44 +7,15 @@ using UnityEngine;
 public class SpinnerManager : MonoBehaviour
 {
     [SerializeField]
-    private SpinnerContentManager spinnerContentManager;
-    [SerializeField]
-    private SpinnerSlotPlacer spinnerSlotPlacer;
-    [SerializeField]
-    private SpinnerWheelUIManager spinnerWheelUIManager;
-    [SerializeField]
     private SpinnerAnimator spinnerAnimator;
     [SerializeField]
     private SpinnerResultManager spinnerResultManager;
     [SerializeField]
-    private UIDisplayInformationManager uiDisplayInformationManager;
-    [SerializeField]
-    private SpinnerPanelUIManager spinnerPanelUIManager;
-    [SerializeField]
     private ObtainedItemsManager obtainedItemsManager;
-    [SerializeField]
-    private ObtainedItemsUIManager obtainedItemsUIManager;
     [SerializeField]
     private ChestOpenManager chestOpenManager;
     [SerializeField]
-    private ChestOpenUIManager chestOpenUIManager;
-
-    [SerializeField]
-    private ButtonHandler spinnerButtonHandler;
-    [SerializeField]
-    private ButtonHandler leaveButtonHandler;
-    [SerializeField]
-    private ButtonHandler explodeResultGiveUpButtonHandler;
-    [SerializeField]
-    private ButtonHandler explodeResultReviveButtonHandler;
-    [SerializeField]
-    private ButtonHandler wonResultButtonHandler;
-    [SerializeField]
-    private ButtonHandler obtainedItemsUIDisplayButton;
-    [SerializeField]
-    private ButtonHandler obtainedItemsUIDisplayExitButton;
-    [SerializeField]
-    private ButtonHandler chestOpenButton;
+    private SpinnerUIManager spinnerUIManager;
 
     private enum SpinnerState
     {
@@ -70,8 +41,9 @@ public class SpinnerManager : MonoBehaviour
 
     private void Start()
     {
-        spinnerWheels = spinnerWheelUIManager.GetSpinnerWheelUIReferences();
-        obtainedItemsUIManager.SetUIObtainedStorage();
+        // UI
+        spinnerWheels = spinnerUIManager.GetSpinnerWheelsReferences();
+        // State
         currentState = SpinnerState.SetRoundToBeginning;
     }
 
@@ -87,31 +59,26 @@ public class SpinnerManager : MonoBehaviour
                 break;
             case SpinnerState.WaitingForButtonPress:
                 // UI
-                if (spinnerButtonHandler.GetFlag())
+                if (spinnerUIManager.GetIsSpinClicked())
                 {
                     // UI
-                    spinnerButtonHandler.SetFlag(false);
-                    spinnerButtonHandler.ButtonSetActive(false);
-                    CheckEnableSafeZoneOptions(false);
+                    spinnerUIManager.SpinnerButtonClicked();
                     // Function
                     spinnerAnimator.SpinWheels(spinnerWheels, spinnerResult, numberOfItems);
                     // State
                     currentState = SpinnerState.Spinning;
                 }// UI
-                else if (leaveButtonHandler.GetFlag())
+                else if (spinnerUIManager.GetIsLeaveClicked())
                 {
                     // UI
-                    leaveButtonHandler.SetFlag(false);
-                    leaveButtonHandler.ButtonSetActive(false);
-                    CheckEnableSafeZoneOptions(false);
+                    spinnerUIManager.LeaveButtonPressed();
                     // Function (save)
                     chestOpenManager.SaveChestsToOpenManager();
                     // Function (chests)
                     if (chestOpenManager.GetThereIsChestInTemp())
                     {
                         // UI
-                        chestOpenUIManager.OpenChestUIActive(true);
-                        chestOpenButton.ButtonSetActive(true);
+                        spinnerUIManager.BeginChestOpening();
                         // Function
                         openedChestContents = chestOpenManager.OpenChest();
                         // State
@@ -120,39 +87,33 @@ public class SpinnerManager : MonoBehaviour
                     else
                     {
                         // UI
-                        chestOpenButton.ButtonSetActive(false);
+                        spinnerUIManager.ChestOpenButtonDisable();
                         // Function
                         obtainedItemsManager.MoveTemporaryToPermanentStorage();
                         // State
                         currentState = SpinnerState.SetRoundToBeginning;
                     }
                 }// UI
-                else if (obtainedItemsUIDisplayButton.GetFlag())
+                else if (spinnerUIManager.GetIsObtainedItemsOpenClicked())
                 {
-                    spinnerButtonHandler.ButtonSetActive(false);
-                    obtainedItemsUIDisplayButton.SetFlag(false);
-                    // open the UI for obtained items
-                    obtainedItemsUIManager.SetUIObtainedStorage();
-                    obtainedItemsUIManager.EnableUI(true);
+                    // UI
+                    spinnerUIManager.OpenObtainedItems();
+                    // State
                     currentState = SpinnerState.ObtainableItemsDisplayed;
                 }
                 // State
                 if (currentState != SpinnerState.WaitingForButtonPress)
                 {
                     //UI
-                    // display the obtainedItemsUIButton unless we are at this state
-                    obtainedItemsUIDisplayButton.ButtonSetActive(false);
+                    spinnerUIManager.ObtainableItemsButtonSetDisabled();
                 }
                 break;
             case SpinnerState.ObtainableItemsDisplayed:
                 // UI
-                if (obtainedItemsUIDisplayExitButton.GetFlag())
+                if (spinnerUIManager.GetIsObtainedItemsExitClicked())
                 {
                     // UI
-                    spinnerButtonHandler.ButtonSetActive(true);
-                    obtainedItemsUIDisplayExitButton.SetFlag(false);
-                    obtainedItemsUIManager.EnableUI(false);
-                    obtainedItemsUIDisplayButton.ButtonSetActive(true);
+                    spinnerUIManager.ObtainedItemsExited();
                     // State
                     currentState = SpinnerState.WaitingForButtonPress;
                 }
@@ -166,7 +127,7 @@ public class SpinnerManager : MonoBehaviour
                     obtainedItemsManager.AddItemToStorage(ObtainedItemsManager.StorageType.TempStorage, itemResult);
                     // check if we exploded or not and display the UI accordingly.
                     // UI
-                    if (spinnerResultManager.DisplaySpinnerResultUI(itemResult))
+                    if (spinnerUIManager.GetIsExplodeAndDisplayUI(itemResult))
                     {
                         // State
                         currentState = SpinnerState.Exploded;
@@ -180,39 +141,38 @@ public class SpinnerManager : MonoBehaviour
                 break;
             case SpinnerState.ResultDisplayed:
                 // UI
-                if (wonResultButtonHandler.GetFlag())
+                if (spinnerUIManager.GetIsCloseResultViewClicked())
                 {
                     // UI
-                    spinnerResultManager.HideWonResultUI();
-                    wonResultButtonHandler.SetFlag(false);
+                    spinnerUIManager.ExitWonResult();
                     // State
                     currentState = SpinnerState.Initializing;
                 }
                 break;
             case SpinnerState.Exploded:
                 // UI
-                if (explodeResultGiveUpButtonHandler.GetFlag())
+                if (spinnerUIManager.GetIsExplodeGiveUpClicked())
                 {
                     // UI
-                    spinnerResultManager.HideExplodeResultUI();
-                    explodeResultGiveUpButtonHandler.SetFlag(false);
+                    spinnerUIManager.ReEnableGiveUpResultButton();
+                    spinnerUIManager.HideExplodeUI();
                     // Function (save)
                     obtainedItemsManager.ClearTempStorage();
                     // State
                     currentState = SpinnerState.SetRoundToBeginning;
                 }// UI
-                else if (explodeResultReviveButtonHandler.GetFlag())
+                else if (spinnerUIManager.GetIsExplodeReviveClicked())
                 {
                     // UI
-                    explodeResultReviveButtonHandler.SetFlag(false);
+                    spinnerUIManager.ReEnableExplodeResultButton();
                     // Function
                     int reviveCostGold = spinnerResultManager.GetCostOnExplosion();
                     // spend gold, update the gold UI, then continue from the next round
                     if (obtainedItemsManager.SpendGold(reviveCostGold))
                     {
                         // UI
-                        uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
-                        spinnerResultManager.HideExplodeResultUI();
+                        spinnerUIManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
+                        spinnerUIManager.HideExplodeUI();
                         // State
                         currentState = SpinnerState.Initializing;
                     }
@@ -222,33 +182,29 @@ public class SpinnerManager : MonoBehaviour
                 // Function
                 round = 0;
                 // UI
-                uiDisplayInformationManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
+                spinnerUIManager.DisplayCurrencyInfo(obtainedItemsManager.GetCurrencyList());
                 // State
                 currentState = SpinnerState.Initializing;
                 break;
             case SpinnerState.ChestsOpening:
                 // UI
-                if (chestOpenButton.GetFlag())
+                if (spinnerUIManager.GetIsChestOpenClicked())
                 {
                     // UI
-                    chestOpenButton.SetFlag(false);
-                    chestOpenButton.ButtonSetActive(false);
-                    wonResultButtonHandler.SetFlag(true);
+                    spinnerUIManager.ChestOpenDeactivate();
                     // State
                     currentState = SpinnerState.ChestOpen;
                 }
                 break;
             case SpinnerState.ChestOpen:
                 // UI
-                if (wonResultButtonHandler.GetFlag())
+                if (spinnerUIManager.GetIsCloseResultViewClicked())
                 {
                     // Function
                     if (openedChestContents.Count > 0)
                     {
                         // UI
-                        wonResultButtonHandler.SetFlag(false);
-                        spinnerResultManager.RestartAnimation();
-                        spinnerResultManager.DisplaySpinnerResultUI(openedChestContents[0]);
+                        spinnerUIManager.ContinueWithNextItem(openedChestContents[0]);
                         // Function
                         openedChestContents.RemoveAt(0);
                         // State
@@ -260,20 +216,16 @@ public class SpinnerManager : MonoBehaviour
                         if (chestOpenManager.GetThereIsChestInTemp())
                         {
                             // UI
-                            spinnerResultManager.HideWonResultUI();
-                            wonResultButtonHandler.SetFlag(false);
-                            chestOpenButton.ButtonSetActive(true);
+                            spinnerUIManager.ContinueChestOpeningNextChest();
                             // Function
                             openedChestContents = chestOpenManager.OpenChest();
                             // State
                             currentState = SpinnerState.ChestsOpening;
                         }
-                        else {
-                            // UI
-                            chestOpenButton.ButtonSetActive(false);
-                            chestOpenUIManager.OpenChestUIActive(false);
-                            spinnerResultManager.HideWonResultUI();
-                            wonResultButtonHandler.SetFlag(false);
+                        else
+                        {
+                            //UI
+                            spinnerUIManager.EndChestOpeningAndReset();
                             // Function
                             obtainedItemsManager.MoveTemporaryToPermanentStorage();
                             // State
@@ -289,35 +241,14 @@ public class SpinnerManager : MonoBehaviour
     {
         // Function
         round++;
-        string roundType = spinnerWheelUIManager.SpinnerInitialise(round);
-        List<Obtainable> spinnerObtainables = spinnerContentManager.GetSpinnerContents(roundType);
-        bool isSafeZone = spinnerContentManager.GetCurrentSpinnerIsLeavable();
+        string roundType = spinnerUIManager.InitSpinnerGetRoundType(round);
+        List<Obtainable> spinnerObtainables = spinnerUIManager.GetSpinnerContents(roundType);
+        bool isSafeZone = spinnerUIManager.GetIsSafeZone();
         numberOfItems = spinnerObtainables.Count;
         spinnerResult = UnityEngine.Random.Range(0, numberOfItems);
         itemResult = spinnerObtainables[spinnerResult];
         // UI
-        uiDisplayInformationManager.SetRoundText(round);
-        CheckEnableSafeZoneOptions(isSafeZone);
-        spinnerSlotPlacer.SetSlotObtainableItems(spinnerObtainables);
-        spinnerPanelUIManager.SetSpinWriting(roundType, 
-                            spinnerContentManager.GetObtainableRewardRateWriting(), spinnerContentManager.GetSpinnerZoneColor());
-        spinnerButtonHandler.ButtonSetActive(true);
-        leaveButtonHandler.ButtonSetActive(true);
-        obtainedItemsUIDisplayButton.ButtonSetActive(true);
+        spinnerUIManager.InitializeSpinner(round, isSafeZone, spinnerObtainables, roundType);
     }
 
-
-    private void CheckEnableSafeZoneOptions(bool isSafeZone)
-    {
-        if (isSafeZone)
-        {
-            spinnerPanelUIManager.OpenButtonsPanel(true);
-            spinnerPanelUIManager.SetActiveLeaveButton(true);
-        }
-        else
-        {
-            spinnerPanelUIManager.OpenButtonsPanel(false);
-            spinnerPanelUIManager.SetActiveLeaveButton(false);
-        }
-    }
 }
